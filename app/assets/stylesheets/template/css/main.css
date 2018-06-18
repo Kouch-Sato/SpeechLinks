@@ -22,7 +22,7 @@ figure, p {
 }
 
 a {
-    color: #fff;
+    
 	
     -webkit-transition: all .3s ease-in 0s;
        -moz-transition: all .3s ease-in 0s;
@@ -41,7 +41,7 @@ a, a:focus, a:hover {
 }
 
 a:focus, a:hover {
-    color: #6CB670;
+    color: #8B0000;
 }
 
 h1, h2, h3,
