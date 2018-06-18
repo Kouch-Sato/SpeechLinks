@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+
+  get 'home/top'
   namespace :user do
     resources :articles
   end
