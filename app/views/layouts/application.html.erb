@@ -42,10 +42,14 @@
             <li><a href="http://google.com">Contact</a></li>
           </ul>
         </nav>
-        <!-- /main nav -->
+        <!-- /main nav -->  
       </div>
     </header>  
-
+    <div class="container">
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+    </div>  
+  
     <%= yield %>
     <script>
 			var wow = new WOW ({

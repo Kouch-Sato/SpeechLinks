@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  root to: "home#top"
   get 'home/top'
   namespace :user do
     resources :articles
