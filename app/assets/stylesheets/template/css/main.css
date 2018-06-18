@@ -497,7 +497,7 @@ top: -8px;
 ==========================================*/
 
 #facts {
-	background-image: url("..//template/img/parallax/city.jpg");
+	background-image: url("/img/parallax/city.jpg");
 	background-color: rgba(6,32,51,.8);
 	background-attachment: fixed !important;
 	background-position: center center;
@@ -613,7 +613,7 @@ label.error {
 }
 
 .contact-form #form-submit {
-  background: url("..//template/img/envelop.png") no-repeat scroll 0 15px transparent;
+  background: url("img/envelop.png") no-repeat scroll 0 15px transparent;
   border: 0 none;
   color: #000;
   font-size: 16px;

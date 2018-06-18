@@ -9,15 +9,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body id="body">
     <!-- preloader -->
-    <div id="preloader">
-      <img src="/template/img/preloader.gif" alt="Preloader">
-    </div>
+    
     <%= yield %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
     <script>
 			var wow = new WOW ({
 				boxClass:     'wow',      // animated element css class (default is wow)
