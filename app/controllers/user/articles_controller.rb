@@ -13,6 +13,7 @@ class User::ArticlesController < ApplicationController
   end
 
   def show
+    @article = Article.find(params[:id])
   end
 
   def index
@@ -20,6 +21,7 @@ class User::ArticlesController < ApplicationController
   end
 
   def edit
+    @article = Article.find(params[:id])
   end
 
   def update
