@@ -12,6 +12,10 @@
   </head>
 
   <body id="body">
+    <!-- preloader -->
+    <div id="preloader">
+      <img src="/template/img/preloader.gif" alt="Preloader">
+    </div>
     <%= yield %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script>
