@@ -25,6 +25,13 @@ class User::ArticlesController < ApplicationController
   end
 
   def update
+    @article = Article.find(params[:id])
+    if @article.update(article_params)
+      @article.save
+      redirect_to user_article_path(@article), notice: "記事を更新しました"
+    else
+      render :edit
+    end
   end
 
   def destroy
