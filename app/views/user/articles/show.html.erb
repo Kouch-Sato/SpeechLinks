@@ -1,7 +1,0 @@
-<div class="container">
-  <h1>記事詳細画面</h1>
-  <h2><%= @article.title %></h2>
-  <h3><%= @article.content %></h3>
-  <%= link_to "編集", edit_user_article_path(@article) %>
-  <%= link_to "削除", user_article_path(@article), method: :delete, data: {confirm: '本当に記事を削除しますか？'} %>
-</div>

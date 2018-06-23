@@ -24,7 +24,7 @@
           <!-- /responsive nav button -->
 
           <!-- logo -->
-          <%= link_to user_articles_path do |f| %>
+          <%= link_to user_speeches_path do |f| %>
             <h1 id="logo">
               <img src="/template/img/logo.png" alt="Brandi">
             </h1>
@@ -37,7 +37,7 @@
           <ul id="nav" class="nav navbar-nav">
             <li class="current"><a href="#body">Home</a></li>
             <% if user_signed_in? %>
-              <li><%= link_to "記事を書く", new_user_article_path %></li>
+              <li><%= link_to "記事を書く", new_user_speech_path %></li>
               <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
               <li><%= link_to current_user.name %></li>
             <% end %>

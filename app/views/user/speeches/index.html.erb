@@ -1,14 +1,14 @@
 <div class="container">
   <h1>新着記事一覧</h1>
   <table class="table table-striped table-hover">
-    <% @articles.each do |article| %>
+    <% @speeches.each do |speech| %>
       <tr>
         <td>
-          <%= link_to(user_article_path(article)) do %>
-            <%= article.title %>
+          <%= link_to(user_speech_path(speech)) do %>
+            <%= speech.title %>
           <% end %>
         </td>
-        <td><%= article.created_at %></td>
+        <td><%= speech.created_at %></td>
       </tr>
     <% end %>
   </table>  
