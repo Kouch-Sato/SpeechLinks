@@ -24,10 +24,8 @@
           <!-- /responsive nav button -->
 
           <!-- logo -->
-          <%= link_to user_speeches_path do |f| %>
-            <h1 id="logo">
-              <img src="/template/img/logo.png" alt="Brandi">
-            </h1>
+          <%= link_to user_speeches_path do %>
+            <h1 style="color: #fff;">Speech Links</h1> 
           <% end %>
           <!-- /logo -->
         </div>
@@ -35,13 +33,11 @@
         <!-- main nav -->
         <nav class="collapse navbar-collapse navbar-right" role="navigation">
           <ul id="nav" class="nav navbar-nav">
-            <li class="current"><a href="#body">Home</a></li>
             <% if user_signed_in? %>
               <li><%= link_to "スピーチを書く", new_user_speech_path %></li>
               <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
               <li><%= link_to current_user.name %></li>
             <% end %>
-            <li><a href="http://google.com">Contact</a></li>
           </ul>
         </nav>
         <!-- /main nav -->  
