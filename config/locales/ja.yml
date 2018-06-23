@@ -203,3 +203,14 @@ ja:
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
     pm: 午後
+  activerecord: 
+    models: 
+      user: ユーザー
+      speech: スピーチ
+    attributes: 
+      user: 
+        email: メールアドレス
+        password: パスワード
+      speech:
+        title: タイトル
+        content: 本文
