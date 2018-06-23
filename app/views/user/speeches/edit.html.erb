@@ -1,9 +1,7 @@
-<div class="container">
-  <h1>スピーチを編集する</h1>
-  <%= form_for [:user, @speech] do |f| %>
-    <%= f.text_field :title, class: "form-control", placeholder: "タイトル" %>
-    <%= f.text_area :content, class: "form-control", placeholder: "本文を書いてください" %>
-    <%= f.submit "更新", class: "btn btn-primary" %>
-  <% end %>
-  <%= link_to "一覧画面へ", user_speeches_path %>
-</div>  
+<h1>スピーチを編集する</h1>
+<%= form_for [:user, @speech] do |f| %>
+  <%= f.text_field :title, class: "form-control", placeholder: "タイトル" %>
+  <%= f.text_area :content, class: "form-control", placeholder: "本文を書いてください" %>
+  <%= f.submit "更新", class: "btn btn-primary" %>
+<% end %>
+<%= link_to "一覧画面へ", user_speeches_path %>

@@ -1,7 +1,5 @@
-<div class="container">
-  <h1>スピーチ詳細画面</h1>
-  <h2><%= @speech.title %></h2>
-  <h3><%= @speech.content %></h3>
-  <%= link_to "編集", edit_user_speech_path(@speech) %>
-  <%= link_to "削除", user_speech_path(@speech), method: :delete, data: {confirm: '本当にスピーチを削除しますか？'} %>
-</div>
+<h1>スピーチ詳細画面</h1>
+<h2><%= @speech.title %></h2>
+<h3><%= @speech.content %></h3>
+<%= link_to "編集", edit_user_speech_path(@speech) %>
+<%= link_to "削除", user_speech_path(@speech), method: :delete, data: {confirm: '本当にスピーチを削除しますか？'} %>
