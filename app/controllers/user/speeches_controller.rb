@@ -8,7 +8,7 @@ class User::SpeechesController < ApplicationController
   def create
     @speech = Speech.new(speech_params)
     if @speech.save
-      redirect_to user_speeches_path, notice: "記事を作成しました。"
+      redirect_to user_speeches_path, notice: "スピーチを作成しました。"
     else 
       render :new
     end
@@ -30,7 +30,7 @@ class User::SpeechesController < ApplicationController
     @speech = Speech.find(params[:id])
     if @speech.update(speech_params)
       @speech.save
-      redirect_to user_speech_path(@speech), notice: "記事を更新しました"
+      redirect_to user_speech_path(@speech), notice: "スピーチを更新しました"
     else
       render :edit
     end
@@ -39,7 +39,7 @@ class User::SpeechesController < ApplicationController
   def destroy
     @speech = Speech.find(params[:id])
     @speech.destroy
-    redirect_to user_speeches_path, notice: "記事を削除しました。"
+    redirect_to user_speeches_path, notice: "スピーチを削除しました。"
   end
 
   private
