@@ -36,9 +36,11 @@
         <nav class="collapse navbar-collapse navbar-right" role="navigation">
           <ul id="nav" class="nav navbar-nav">
             <li class="current"><a href="#body">Home</a></li>
-            <li><%= link_to "記事を書く", new_user_article_path %></li>
-            <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
-            <li><a href="#team">Team</a></li>
+            <% if user_signed_in? %>
+              <li><%= link_to "記事を書く", new_user_article_path %></li>
+              <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+              <li><%= link_to current_user.name %></li>
+            <% end %>
             <li><a href="http://google.com">Contact</a></li>
           </ul>
         </nav>
