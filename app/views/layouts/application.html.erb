@@ -48,8 +48,16 @@
       </div>
     </header>  
     <div class="container">
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>  
+      <% if flash[:notice].present? %>
+        <div class="alert alert-success">
+          <%= flash[:notice] %>
+        </div> 
+      <% end %>
+      <% if flash[:alert].present? %>
+        <div class="alert alert-danger">
+          <%= flash[:alert] %>
+        </div>  
+      <% end %>
       <%= yield %>
     </div>
     <script>
