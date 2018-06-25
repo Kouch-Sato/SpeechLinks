@@ -34,9 +34,10 @@
         <nav class="collapse navbar-collapse navbar-right" role="navigation">
           <ul id="nav" class="nav navbar-nav">
             <% if user_signed_in? %>
+              <li><%= link_to "スピーチ一覧", user_speeches_path %></li>
+              <li><%= link_to "ユーザー一覧", users_path %></li>
               <li><%= link_to "スピーチを書く", new_user_speech_path %></li>
-              <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
-              <li><%= link_to current_user.name %></li>
+              <li><%= link_to current_user.name, user_path(current_user) %></li>
             <% end %>
           </ul>
         </nav>
