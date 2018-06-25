@@ -8,6 +8,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @speeches = current_user.speeches.all
   end
 
   def edit
