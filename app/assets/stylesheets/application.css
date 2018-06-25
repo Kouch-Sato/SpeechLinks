@@ -16,6 +16,25 @@
  *= require_self
  */
 
+body {
+  background: #eee;
+}
+
+.speech-block {
+  margin: 20px;
+}
+
+.speech-block-main {
+  font-size: 32px;
+  color: black;
+}
+
+.speech-block-sub {
+  font-size: 16px;
+  float: left;
+  padding-right: 30px;
+}
+
 
 
 #navigation {
