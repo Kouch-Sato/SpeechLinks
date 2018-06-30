@@ -20,6 +20,19 @@ body {
   background: #eee;
 }
 
+.panel {
+  padding: 30px;
+}
+
+.speech-content {
+  font-size: 16px;
+  line-height: 32px;
+  width: 700px;
+  text-align: justify;
+  text-justify: inter-ideograph;
+  margin: 0 auto;
+}
+
 .speech-block {
   margin: 20px;
 }
