@@ -5,7 +5,10 @@ Rails.application.routes.draw do
   get 'home/top'
   resources :users
   namespace :user do
-    resources :speeches
+    resources :speeches do 
+      resources :likes, only: [:create, :destroy]
+      resources :comments, only: [:create, :destroy]
+    end  
   end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
