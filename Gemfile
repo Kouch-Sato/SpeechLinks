@@ -58,3 +58,6 @@ gem 'font-awesome-rails'
 gem 'devise'
 gem 'sprockets', '~> 3.7.2'
 
+group :production, :staging do
+  gem 'unicorn'
+end
