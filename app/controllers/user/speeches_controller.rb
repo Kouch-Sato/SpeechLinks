@@ -16,6 +16,8 @@ class User::SpeechesController < ApplicationController
 
   def show
     @speech = Speech.find(params[:id])
+    @comments = @speech.comments
+    @comment = Comment.new
   end
 
   def index
