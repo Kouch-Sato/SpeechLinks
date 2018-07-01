@@ -44,19 +44,24 @@
         <!-- /main nav -->  
       </div>
     </header>  
-    <div class="container">
-      <% if flash[:notice].present? %>
-        <div class="alert alert-success">
+    
+    <% if flash[:notice].present? %>
+      <div class="alert alert-success">
+        <div class="container">
           <%= flash[:notice] %>
         </div> 
-      <% end %>
-      <% if flash[:alert].present? %>
-        <div class="alert alert-danger">
+      </div> 
+    <% end %>
+    <% if flash[:alert].present? %>
+      <div class="alert alert-danger">
+        <div class="container">
           <%= flash[:alert] %>
         </div>  
-      <% end %>
+      </div> 
+    <% end %>
+    <div class="container">
       <%= yield %>
-    </div>
+    </div> 
     <script>
 			var wow = new WOW ({
 				boxClass:     'wow',      // animated element css class (default is wow)
