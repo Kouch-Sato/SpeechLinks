@@ -80,3 +80,13 @@ body {
 .navbar-nav li a:hover::after {
   width: 100%;
 }
+
+.like-btn { 
+  font-size: 30px;
+  padding: 10px;
+  border: 1px solid #bbb;
+  border-radius: 50%;
+  position: fixed;
+  top: 400px;
+  left: 200px;
+}
