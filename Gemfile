@@ -61,3 +61,6 @@ gem 'sprockets', '~> 3.7.2'
 group :production, :staging do
   gem 'unicorn'
 end
+
+gem 'bootswatch-rails'
+gem 'bootstrap'
