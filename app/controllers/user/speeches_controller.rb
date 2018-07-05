@@ -46,6 +46,6 @@ class User::SpeechesController < ApplicationController
 
   private
   def speech_params
-    params.require(:speech).permit(:title, :content)
+    params.require(:speech).permit(:title, :content, :overview)
   end
 end

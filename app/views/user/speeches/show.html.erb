@@ -1,45 +1,49 @@
-<h1>スピーチ詳細画面</h1>
-<div class="panel">
-  <h2><%= @speech.title %></h2>
-  <h3><%= @speech.user.name %></h3>
-  <div class="speech-content">
-    <%= simple_format(@speech.content) %>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h2><%= @speech.title %></h2>
   </div>
+  <div class="panel-body">
+    <h3><%= @speech.user.name %></h3>
+    <h3><%= @speech.overview %></h3>
+    <div class="speech-content">
+      <%= simple_format(@speech.content) %>
+    </div>
 
-  <div class="like-btn">
-    <% if current_user.likes.find_by(speech_id: @speech.id) %>
-      <%= link_to user_speech_like_path(@speech.id), method: :delete do %>
-        <i class="fa fa-eye", style="color: red;"></i>
-      <% end %>  
-    <% else %>
-      <%= link_to user_speech_likes_path(@speech.id), method: :post do %>
-        <i class="fa fa-eye"></i>
-      <% end %>  
-    <% end %>    
-  </div>
+    <div class="like-btn">
+      <% if current_user.likes.find_by(speech_id: @speech.id) %>
+        <%= link_to user_speech_like_path(@speech.id), method: :delete do %>
+          <i class="fa fa-eye", style="color: red;"></i>
+        <% end %>  
+      <% else %>
+        <%= link_to user_speech_likes_path(@speech.id), method: :post do %>
+          <i class="fa fa-eye"></i>
+        <% end %>  
+      <% end %>    
+    </div>
 
-  <%= link_to "編集", edit_user_speech_path(@speech) %>
-  <%= link_to "削除", user_speech_path(@speech), method: :delete, data: {confirm: '本当にスピーチを削除しますか？'} %>
+    <%= link_to "編集", edit_user_speech_path(@speech) %>
+    <%= link_to "削除", user_speech_path(@speech), method: :delete, data: {confirm: '本当にスピーチを削除しますか？'} %>
 
-  <table class="table table-striped table-hover">
-    <% @comments.each do |comment| %>
-      <tr>
-        <td>
-            <p>
-              <%= comment.content %>
-            </p>
-            <%= link_to(user_path(comment.user)) do %>
-              <%= comment.user.name %>
-            <% end %>
-          </div>  
-        </td>
-      </tr>
+    <table class="table table-striped table-hover">
+      <% @comments.each do |comment| %>
+        <tr>
+          <td>
+              <p>
+                <%= comment.content %>
+              </p>
+              <%= link_to(user_path(comment.user)) do %>
+                <%= comment.user.name %>
+              <% end %>
+            </div>  
+          </td>
+        </tr>
+      <% end %>
+    </table>
+
+    <%= render partial: "shared/error_message", locals: { model: @comment } %>
+    <%= form_for (@comment), url: user_speech_comments_path(@speech) do |f| %>
+      <%= f.text_area :content, class: "form-control", placeholder: "コメント" %>
+      <%= f.submit "コメントを投稿", class: "btn btn-primary" %>
     <% end %>
-  </table>
-
-  <%= render partial: "shared/error_message", locals: { model: @comment } %>
-  <%= form_for (@comment), url: user_speech_comments_path(@speech) do |f| %>
-    <%= f.text_area :content, class: "form-control", placeholder: "コメント" %>
-    <%= f.submit "コメントを投稿", class: "btn btn-primary" %>
-  <% end %>
+  </div>  
 </div>  
