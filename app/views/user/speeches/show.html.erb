@@ -3,10 +3,22 @@
     <h2><%= @speech.title %></h2>
   </div>
   <div class="panel-body">
-    <h3><%= @speech.user.name %></h3>
-    <h3><%= @speech.overview %></h3>
-    <div class="speech-content">
-      <%= simple_format(@speech.content) %>
+    <blockquote>
+      <p><%= @speech.overview %></p>
+      <small><%= @speech.user.name %></small>
+    </blockquote>
+    
+    <div class="speech-show">
+      <div style="text-align: center; font-size: 20px;">
+        <%= @speech.title %>
+      </div>
+      <div style="float: right;">
+        <%= simple_format(@speech.user.name) %>
+      </div>
+      <br/><br/>
+      <div>
+        <%= simple_format(@speech.content) %>
+      </div>
     </div>
 
     <div class="like-btn">

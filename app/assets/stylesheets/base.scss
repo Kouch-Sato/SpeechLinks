@@ -25,13 +25,15 @@ label {
   font-weight: bold;
 }
 
-.speech-content {
+.speech-show {
   font-size: 16px;
   line-height: 32px;
-  width: 700px;
+  width: 650px;
   text-align: justify;
   text-justify: inter-ideograph;
   margin: 0 auto;
+  font-family: 'Times New Roman';
+  color: #222;
 }
 
 .speech-block {
