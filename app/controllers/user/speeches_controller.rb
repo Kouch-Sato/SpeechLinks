@@ -8,7 +8,7 @@ class User::SpeechesController < ApplicationController
   def create
     @speech = current_user.speeches.new(speech_params)
     if @speech.save
-      redirect_to user_speeches_path, notice: "スピーチを作成しました。"
+      redirect_to user_speech_path(@speech), notice: "スピーチを登録しました"
     else 
       render :new
     end
