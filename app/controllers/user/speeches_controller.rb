@@ -1,5 +1,6 @@
 class User::SpeechesController < ApplicationController
   before_action :authenticate_user!
+  before_action :ensure_speech_owner, only: [:edit, :update]
 
   def new
     @speech = Speech.new
@@ -47,5 +48,12 @@ class User::SpeechesController < ApplicationController
   private
   def speech_params
     params.require(:speech).permit(:title, :content, :overview)
+  end
+
+  def ensure_speech_owner
+    @speech = Speech.find(params[:id])
+    if current_user.id != @speech.user_id
+      redirect_to user_speeches_path, alert: "他人のスピーチは編集できません"
+    end
   end
 end
