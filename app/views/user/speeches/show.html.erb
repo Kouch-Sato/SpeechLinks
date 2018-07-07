@@ -8,7 +8,7 @@
         <p><%= simple_format(@speech.overview) %></p>
         <small><%= link_to @speech.user.name, user_path(@speech.user) %></small>
       </blockquote>   
-      <div class="col-sm-4" style="text-align: right; padding-top: 10px; font-size: 16px;">
+      <div class="col-sm-4" style="text-align: right; padding-top: 20px; font-size: 16px;">
         <p>登録日時 : <%= @speech.created_at %></p>
         <p>最終更新日時 : <%= @speech.updated_at %></p>
       </div>
@@ -40,7 +40,7 @@
     </div>
 
     <%= link_to edit_user_speech_path(@speech), class: "btn btn-default btn-sm" do %>
-      <span class="glyphicon glyphicon-pencil"></span> 編集
+      編集
     <% end %>  
     <%= link_to "削除", user_speech_path(@speech), method: :delete, data: {confirm: '本当にスピーチを削除しますか？'} %>
 
@@ -52,8 +52,16 @@
               <%= link_to(user_path(comment.user)) do %>
                 <%= comment.user.name %>
               <% end %>
+              <span style="float:right">
+              <% if current_user.id == comment.user_id %>
+                <%= link_to user_speech_comment_path(@speech.id, comment.id), method: :delete do %>
+                  <%= fa_icon "trash" %>
+                <% end %>
+              <% end %>
+                <%= comment.created_at %>
+              </span>
             </div>
-            <div class="panel-body">
+            <div class="panel-body">   
               <%= simple_format(comment.content) %>
             </div>
           </div>

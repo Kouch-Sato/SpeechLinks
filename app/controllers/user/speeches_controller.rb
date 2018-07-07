@@ -1,6 +1,6 @@
 class User::SpeechesController < ApplicationController
   before_action :authenticate_user!
-  before_action :ensure_speech_owner, only: [:edit, :update]
+  before_action :ensure_speech_owner, only: [:edit, :update, :destroy]
 
   def new
     @speech = Speech.new
