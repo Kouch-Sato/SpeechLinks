@@ -11,6 +11,14 @@
       <div class="col-sm-4" style="text-align: right; padding-top: 20px; font-size: 16px;">
         <p>登録日時 : <%= @speech.created_at %></p>
         <p>最終更新日時 : <%= @speech.updated_at %></p>
+        <% if @speech.user_id == current_user.id %>
+          <%= link_to edit_user_speech_path(@speech), class: "btn btn-info" do %>
+            <%= fa_icon "pencil" %> 編集
+          <% end %>  
+          <%= link_to user_speech_path(@speech), class: "btn btn-danger", method: :delete, data: {confirm: '本当にスピーチを削除しますか？'} do %>
+          <%= fa_icon "trash" %> 削除
+          <% end %>
+        <% end %>
       </div>
     </div>
     
@@ -38,12 +46,7 @@
         <% end %>  
       <% end %>    
     </div>
-
-    <%= link_to edit_user_speech_path(@speech), class: "btn btn-default btn-sm" do %>
-      編集
-    <% end %>  
-    <%= link_to "削除", user_speech_path(@speech), method: :delete, data: {confirm: '本当にスピーチを削除しますか？'} %>
-
+    
     <table class="table table-hover">
       <% @comments.each do |comment| %>
         <tr>
@@ -54,7 +57,7 @@
               <% end %>
               <span style="float:right">
               <% if current_user.id == comment.user_id %>
-                <%= link_to user_speech_comment_path(@speech.id, comment.id), method: :delete do %>
+                <%= link_to user_speech_comment_path(@speech.id, comment.id), method: :delete, data: {confirm: 'コメントを削除してよろしいですか？'} do %>
                   <%= fa_icon "trash" %>
                 <% end %>
               <% end %>
