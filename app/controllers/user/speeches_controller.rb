@@ -53,7 +53,7 @@ class User::SpeechesController < ApplicationController
   def ensure_speech_owner
     @speech = Speech.find(params[:id])
     if current_user.id != @speech.user_id
-      redirect_to user_speeches_path, alert: "他人のスピーチは編集できません"
+      redirect_to user_speech_path(@speech), alert: "他人のスピーチは編集できません"
     end
   end
 end
