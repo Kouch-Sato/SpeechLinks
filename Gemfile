@@ -63,4 +63,5 @@ group :production, :staging do
 end
 
 gem 'bootswatch-rails'
-gem 'bootstrap'
+gem 'bootstrap-sass'
+gem 'font-awesome-sass'
