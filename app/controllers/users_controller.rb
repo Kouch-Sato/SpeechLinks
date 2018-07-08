@@ -8,7 +8,9 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @speeches = @user.speeches.all
+    @speeches = @user.speeches
+    @liked_speeches = @user.liked_speeches
+    @commented_speeches = @user.commented_speeches
   end
 
   def edit
