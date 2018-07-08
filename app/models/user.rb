@@ -7,6 +7,8 @@ class User < ApplicationRecord
   has_many :speeches, dependent: :delete_all
   has_many :comments, dependent: :delete_all
   has_many :likes, dependent: :delete_all
+  has_many :liked_speeches, through: :likes, source: :speech
+  has_many :commented_speeches, through: :comments, source: :speech
 
   validates :name, presence: true
   validates :bio, presence: true
