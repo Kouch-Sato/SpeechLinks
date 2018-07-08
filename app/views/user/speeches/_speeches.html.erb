@@ -1,0 +1,21 @@
+<table class="table table-hover">
+<% speeches.each do |speech| %>
+  <tr>
+    <td>
+      <div class="speech-block">
+        <div class="speech-block-main">
+          <%= link_to(user_speech_path(speech)) do %>
+            <%= speech.title %>
+          <% end %>
+        </div> 
+        <p class="speech-block-sub">
+          <%= speech.user.name %>
+        </p>
+        <p class="speech-block-sub">
+          <%= speech.created_at %>
+        </p>
+      </div>  
+    </td>
+  </tr>
+<% end %>
+</table>
