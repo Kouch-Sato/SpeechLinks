@@ -1,24 +1,19 @@
 <div class="panel panel-default">
   <div class="panel-heading">
-    <h2>ようこそ、Speech Linksへ！</h2>
+    <h2>ようこそ、Speech Linksへ。アカウントを作成しましょう！</h2>
   </div>
   <div class="panel-body">
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= devise_error_messages! %>
 
       <div class="field">
-        <%= f.label :name %><br />
+        <%= f.label :name, "名前 (in English)" %><br />
         <%= f.text_field :name, autofocus: true, class: "form-control", placeholder: "Kouch Sato" %>
       </div>
 
       <div class="field">
         <%= f.label :email %><br />
         <%= f.email_field :email, class: "form-control", placeholder: "speech@example.com" %>
-      </div>
-
-      <div class="field">
-        <%= f.label :bio, "プロフィール欄" %><br />
-        <%= f.text_field :bio, class: "form-control", placeholder: "UTESSのOBです。エクステンポと後輩を愛しています。" %>
       </div>
 
       <div class="field">
@@ -29,6 +24,11 @@
       <div class="field">
         <%= f.label :grade, "ESSでの学年" %><br />
         <%= f.select :grade, [["1", 1], ["2", 2], ["3",3], ["4", 4]], class: "form-control" %>
+      </div>      
+
+      <div class="field">
+        <%= f.label :bio, "自己紹介文" %><br />
+        <%= f.text_area :bio, class: "form-control", placeholder: "UTESSのOBです。エクステンポと後輩への愛が止まりません。" %>
       </div>
 
       <div class="field">
