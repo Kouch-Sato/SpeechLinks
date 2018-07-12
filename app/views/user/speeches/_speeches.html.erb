@@ -5,7 +5,9 @@
       <div class="speech-block">
         <div class="speech-block-main">
           <%= link_to(user_speech_path(speech)) do %>
-            <%= speech.title %>
+            <span data-toggle="tooltip" data-placement="right" data-original-title="<%= speech.overview %>">
+              <%= speech.title %>
+            </span>  
           <% end %>
         </div> 
         <p class="speech-block-sub">
