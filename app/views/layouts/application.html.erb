@@ -9,7 +9,7 @@
   </head>
 
   <body id="body">
-    <nav class="navbar navbar-inverse">
+    <nav class="navbar navbar-default">
       <div class="container">
         <div class="container-fluid">
           <div class="navbar-header">
@@ -19,17 +19,33 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <%= link_to "Speech Links", user_speeches_path, class: "navbar-brand" %>
+            <span class="navbar-brand">Speech Links</span>
           </div>
           <% if user_signed_in? %>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
               <ul class="nav navbar-nav">
-                <li><%= link_to "スピーチ一覧", user_speeches_path %></li>
-                <li><%= link_to "ユーザー一覧", users_path %></li>
+                <li>
+                  <%= link_to user_speeches_path do %>
+                    <i class="fa fa-book"></i> スピーチ一覧
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to users_path do %>
+                    <i class="fa fa-users"></i> ユーザー一覧
+                  <% end %>
+                </li>
               </ul>
               <ul class="nav navbar-nav navbar-right">
-                <li><%= link_to "スピーチを書く", new_user_speech_path %></li>
-                <li><%= link_to current_user.name, user_path(current_user) %></li>
+                <li>
+                  <%= link_to new_user_speech_path do %>
+                    <i class="fa fa-pencil-square-o"></i> スピーチ登録
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to user_path(current_user) do %>
+                    <i class="fa fa-user-circle"></i> <%= current_user.name %>
+                  <% end %>
+                </li>
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="caret"></span></a>
                   <ul class="dropdown-menu" role="menu">
