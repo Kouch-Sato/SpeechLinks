@@ -41,11 +41,11 @@
     <div class="like-btn">
       <% if current_user.likes.find_by(speech_id: @speech.id) %>
         <%= link_to user_speech_like_path(@speech.id), method: :delete do %>
-          <i class="fa fa-check-circle" data-toggle="tooltip" data-placement="bottom" data-original-title="取り消し"></i>
+          <i class="fa fa-check-circle" data-toggle="tooltip" data-placement="bottom" data-original-title="読んだ！済み"></i>
         <% end %>  
       <% else %>
         <%= link_to user_speech_likes_path(@speech.id), method: :post do %>
-          <i class="fa fa-check-circle-o" data-toggle="tooltip" data-placement="bottom" data-original-title="読みました"></i>
+          <i class="fa fa-check-circle-o" data-toggle="tooltip" data-placement="bottom" data-original-title="読んだ！"></i>
         <% end %>  
       <% end %>    
     </div>

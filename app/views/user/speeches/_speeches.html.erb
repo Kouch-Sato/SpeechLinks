@@ -9,7 +9,9 @@
           <% end %>
         </div> 
         <p class="speech-block-sub">
-          <%= speech.user.name %>
+          <%= link_to(user_path(speech.user)) do %>
+            <%= speech.user.name %>
+          <% end %>
         </p>
         <p class="speech-block-sub">
           <%= speech.created_at %>
