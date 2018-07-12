@@ -8,7 +8,7 @@
       <p><%= simple_format(@user.bio) %></p>
     </blockquote>   
     <ul class="nav nav-tabs row">
-      <li class="active col-sm-4" style="padding: 0;"><a href="#speeches" data-toggle="tab" style="text-align: center;">自分のスピーチ <span class="badge"><%= @speeches.count %></span></a></li>
+      <li class="active col-sm-4" style="padding: 0;"><a href="#speeches" data-toggle="tab" style="text-align: center;">この人のスピーチ <span class="badge"><%= @speeches.count %></span></a></li>
       <li class="col-sm-4" style="padding: 0;"><a href="#liked_speeches" data-toggle="tab" style="text-align: center;">読んだスピーチ <span class="badge"><%= @liked_speeches.count %></span></a></li>
       <li class="col-sm-4" style="padding: 0;"><a href="#commented_speeches" data-toggle="tab" style="text-align: center;">コメントしたスピーチ <span class="badge"><%= @commented_speeches.count %></span></a></li>
     </ul>
