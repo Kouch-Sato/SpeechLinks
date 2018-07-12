@@ -15,5 +15,5 @@ class User < ApplicationRecord
   validates :university, presence: true
   validates :grade, presence: true
 
-  enum university: [:東京大学, :慶應義塾大学, :聖心女子大学]
+  enum university: [:東京大学, :慶應義塾大学, :聖心女子大学, :津田塾大学, :筑波大学, :立教大学, :上智大学]
 end

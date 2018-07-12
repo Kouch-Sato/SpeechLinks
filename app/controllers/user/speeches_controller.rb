@@ -22,7 +22,7 @@ class User::SpeechesController < ApplicationController
   end
 
   def index
-    @speeches = Speech.all
+    @speeches = Speech.all.order("created_at DESC")
   end
 
   def edit
