@@ -1,15 +1,28 @@
-<h1>ユーザー一覧</h1>
-<div class="panel">
-  <table class="table table-striped table-hover">
-    <% @users.each do |user| %>
-      <tr>
-        <td>
-          <%= link_to(user_path(user)) do %>
-            <%= user.name %>
-          <% end %>
-        </td>
-        <td><%= user.id %></td>
-      </tr>
-    <% end %>
-  </table>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h2>Speakers</h2>
+  </div>
+  <div class="panel-body">
+    <table class="table table-hover">
+      <% @users.each do |user| %>
+        <tr>
+          <td>
+            <div class="speech-block">
+              <div class="speech-block-main">
+              <%= link_to(user_path(user)) do %>
+                  <%= user.name %>
+                <% end %>
+              </div> 
+              <p class="speech-block-sub">
+                <%= user.university %> <%= user.grade %>年生
+              </p>
+              <p class="speech-block-sub">
+                スピーチの数：<%= user.speeches.count %>
+              </p>
+            </div>  
+          </td>
+        </tr>  
+      <% end %>
+    </table>
+  </div>
 </div>

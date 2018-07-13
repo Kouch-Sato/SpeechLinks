@@ -1,5 +1,6 @@
 class User::SpeechesController < ApplicationController
   before_action :authenticate_user!
+  before_action :ensure_speech_owner, only: [:edit, :update, :destroy]
 
   def new
     @speech = Speech.new
@@ -8,7 +9,7 @@ class User::SpeechesController < ApplicationController
   def create
     @speech = current_user.speeches.new(speech_params)
     if @speech.save
-      redirect_to user_speeches_path, notice: "スピーチを作成しました。"
+      redirect_to user_speech_path(@speech), notice: "スピーチを登録しました"
     else 
       render :new
     end
@@ -21,7 +22,7 @@ class User::SpeechesController < ApplicationController
   end
 
   def index
-    @speeches = Speech.all
+    @speeches = Speech.all.order("created_at DESC")
   end
 
   def edit
@@ -46,6 +47,13 @@ class User::SpeechesController < ApplicationController
 
   private
   def speech_params
-    params.require(:speech).permit(:title, :content)
+    params.require(:speech).permit(:title, :content, :overview)
+  end
+
+  def ensure_speech_owner
+    @speech = Speech.find(params[:id])
+    if current_user.id != @speech.user_id
+      redirect_to user_speech_path(@speech), alert: "他人のスピーチは編集できません"
+    end
   end
 end

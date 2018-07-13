@@ -1,0 +1,25 @@
+<table class="table table-hover">
+<% speeches.each do |speech| %>
+  <tr>
+    <td>
+      <div class="speech-block">
+        <div class="speech-block-main">
+          <%= link_to(user_speech_path(speech)) do %>
+            <span data-toggle="tooltip" data-placement="right" data-original-title="<%= speech.overview %>">
+              <%= speech.title %>
+            </span>  
+          <% end %>
+        </div> 
+        <p class="speech-block-sub">
+          <%= link_to(user_path(speech.user)) do %>
+            <%= speech.user.name %>
+          <% end %>
+        </p>
+        <p class="speech-block-sub">
+          <%= speech.created_at %>
+        </p>
+      </div>  
+    </td>
+  </tr>
+<% end %>
+</table>

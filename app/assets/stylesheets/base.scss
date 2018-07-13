@@ -1,0 +1,73 @@
+body {
+  background: #eee;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+label {
+  font-size: 20px;
+  padding-top: 16px;
+}
+
+.navbar {
+  padding: 10px;
+  font-size: 16px;
+}
+
+.navbar-default .navbar-brand {
+  font-size: 24px;
+  font-weight: bold;
+  color: #D9230F;
+}
+
+.alert {
+  font-size: 16px;
+}
+
+.speech-show {
+  font-size: 16px;
+  line-height: 32px;
+  width: 650px;
+  text-align: justify;
+  text-justify: inter-ideograph;
+  margin: 0 auto;
+  font-family: 'Times New Roman';
+  color: #222;
+}
+
+.speech-block {
+  margin: 20px;
+}
+
+.speech-block-main {
+  font-size: 32px;
+  color: black;
+}
+
+.speech-block-sub {
+  font-size: 16px;
+  float: left;
+  padding-right: 30px;
+}
+
+.like-fix {
+  position: fixed;
+  top: 350px;
+  left: 200px;
+  text-align: center;
+}
+
+.like-count {
+  font-size: 30px;
+  color: #D9230F;  
+}
+.like-btn { 
+  font-size: 60px;
+  padding: 0 10px;
+}

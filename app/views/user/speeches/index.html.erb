@@ -1,24 +1,8 @@
-<h1>新着スピーチ一覧</h1>
-<div class="panel">
-  <table class="table table-striped table-hover">
-    <% @speeches.each do |speech| %>
-      <tr>
-        <td>
-          <div class="speech-block">
-            <div class="speech-block-main">
-              <%= link_to(user_speech_path(speech)) do %>
-                <%= speech.title %>
-              <% end %>
-            </div> 
-            <p class="speech-block-sub">
-              <%= speech.user.name %>
-            </p>
-            <p class="speech-block-sub">
-              <%= speech.created_at %>
-            </p>
-          </div>  
-        </td>
-      </tr>
-    <% end %>
-  </table>
+<div class="panel panel-default">
+<div class="panel-heading">
+  <h2>新着スピーチ一覧</h2>
+</div>
+<div class="panel-body">
+  <%= render partial: "speeches", locals: { speeches: @speeches } %>
+</div>
 </div>

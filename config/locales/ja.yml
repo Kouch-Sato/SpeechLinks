@@ -207,10 +207,18 @@ ja:
     models: 
       user: ユーザー
       speech: スピーチ
+      comment: コメント
     attributes: 
       user: 
         email: メールアドレス
         password: パスワード
+        name: 名前
+        bio: プロフィール欄
+        university: 大学名
+        grade: 学年
       speech:
         title: タイトル
         content: 本文
+        overview: 概要欄
+      comment:
+        content: 内容  

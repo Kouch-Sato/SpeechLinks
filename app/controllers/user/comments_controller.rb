@@ -1,5 +1,6 @@
 class User::CommentsController < ApplicationController
   before_action :authenticate_user! 
+  before_action :ensure_comment_owner, only: [:destroy]  
 
   def create 
     @comment = current_user.comments.new(comment_params)
@@ -8,11 +9,21 @@ class User::CommentsController < ApplicationController
     redirect_to user_speech_path(params[:speech_id]), notice: "コメントを投稿しました！"
   end
 
-  def delete
+  def destroy
+    @comment = Comment.find(params[:id])
+    @comment.delete
+    redirect_to user_speech_path(params[:speech_id]), notice: "コメントを削除しました"
   end
 
   private
   def comment_params
     params.require(:comment).permit(:content)
+  end
+
+  def ensure_comment_owner
+    @comment = Comment.find(params[:id])
+    if current_user.id != @comment.user_id
+      redirect_to user_speech_path(@comment.speech), alert: "他人のコメントは編集できません"
+    end
   end
 end

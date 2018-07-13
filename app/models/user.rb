@@ -4,7 +4,16 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :speeches
-  has_many :comments
-  has_many :likes
+  has_many :speeches, dependent: :delete_all
+  has_many :comments, dependent: :delete_all
+  has_many :likes, dependent: :delete_all
+  has_many :liked_speeches, through: :likes, source: :speech
+  has_many :commented_speeches, through: :comments, source: :speech
+
+  validates :name, presence: true
+  validates :bio, presence: true
+  validates :university, presence: true
+  validates :grade, presence: true
+
+  enum university: [:東京大学, :慶應義塾大学, :聖心女子大学, :津田塾大学, :筑波大学, :立教大学, :上智大学]
 end

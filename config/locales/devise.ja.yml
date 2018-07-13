@@ -32,7 +32,7 @@ ja:
       updated_not_active: "パスワードを変更しました。"
     registrations:
       destroyed: "アカウントを削除しました。またのご利用をお待ちしております。"
-      signed_up: "アカウント登録を受け付けました。"
+      signed_up: "Speech Linksへようこそ！まずは自分のスピーチを登録してみましょう！"
       signed_up_but_inactive: "アカウントは登録されていますが、アクティブになっていないため利用できません。"
       signed_up_but_locked: "アカウントは登録されていますが、ロックされているため利用できません。"
       signed_up_but_unconfirmed: "確認メールを登録したメールアドレス宛に送信しました。リンクを開いてアカウントを有効にして下さい。"
@@ -53,5 +53,5 @@ ja:
       not_found: "は見つかりませんでした。"
       not_locked: "ロックされていません。"
       not_saved:
-        one: "エラーにより、この %{resource} を保存できません："
-        other: "%{count} 個のエラーにより、この %{resource} を保存できません："
+        one: "エラーがありあます。"
+        other: "%{count} 個のエラーがあります。"
