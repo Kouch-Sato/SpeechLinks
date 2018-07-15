@@ -80,3 +80,18 @@ label {
   font-size: 60px;
   padding: 0 10px;
 }
+
+.help-contents {
+  color:#555;
+  width: 90%;
+  margin: 0 auto;
+  
+  h2 {
+    padding: 14px;
+    border-bottom: 2px solid #BBB;
+  }
+
+  p {
+    padding: 4px;
+  }
+}
