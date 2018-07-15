@@ -9,8 +9,8 @@
       <%= f.text_field :title, class: "form-control", placeholder: "タイトル", style: "font-size: 24px; padding: 20px;" %>
       <%= f.label :overview, "紹介文" %>
       <%= f.text_area :overview, class: "form-control", placeholder: "例：皆さんは「みんなやっているから」という理由で決断をしてしまった経験はありませんか？このスピーチが「10年後の自分」を考えるきっかけになれば嬉しいです！添削としてではなく、皆さんの純粋な感想を聞かせてください！", rows: 3, style: "font-size: 16px;" %>
-      <%= f.label :content, "本文" %>
-      <%= f.text_area :content, class: "form-control", placeholder: "本文を書いてください（段落ごとにインデントを揃えてください）", rows: 50 %>
+      <%= f.label :content, "本文（各段落の最初は全角スペース4つ分空けてください）" %>
+      <%= f.text_area :content, class: "form-control", placeholder: "本文を書いてください（各段落の最初は全角スペース4つ分空けてください）", rows: 50 %>
       <br/>
       <%= f.submit "スピーチを登録する！", class: "btn btn-primary", style: "width: 100%;" %>
     <% end %>

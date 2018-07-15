@@ -34,7 +34,7 @@
       </div>
       <br/><br/>
       <div>
-        <%= simple_format(@speech.content) %>
+        <%= safe_join(@speech.content.split("\n"), tag(:br)) %>
       </div>
     </div>
     
