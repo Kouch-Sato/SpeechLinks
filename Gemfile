@@ -65,3 +65,5 @@ end
 gem 'bootswatch-rails'
 gem 'bootstrap-sass'
 gem 'font-awesome-sass'
+gem 'kaminari'
+gem 'kaminari-bootstrap'
