@@ -2,6 +2,8 @@ class User::SpeechesController < ApplicationController
   before_action :authenticate_user!
   before_action :ensure_speech_owner, only: [:edit, :update, :destroy]
 
+  PER = 8
+
   def new
     @speech = Speech.new
   end
@@ -22,7 +24,7 @@ class User::SpeechesController < ApplicationController
   end
 
   def index
-    @speeches = Speech.all.order("created_at DESC")
+    @speeches = Speech.all.order("created_at DESC").page(params[:page]).per(PER)
   end
 
   def edit
