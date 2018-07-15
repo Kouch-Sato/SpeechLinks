@@ -1,8 +1,9 @@
 <div class="panel panel-default">
-<div class="panel-heading">
-  <h2>新着スピーチ一覧</h2>
-</div>
-<div class="panel-body">
-  <%= render partial: "speeches", locals: { speeches: @speeches } %>
-</div>
+  <div class="panel-heading">
+    <h2>新着スピーチ一覧</h2>
+  </div>
+  <div class="panel-body" style="padding: 0;">
+    <%= render partial: "speeches", locals: { speeches: @speeches } %>
+    <div style="margin: 0 auto; text-align: center;"><%= paginate @speeches %></div>
+  </div>
 </div>

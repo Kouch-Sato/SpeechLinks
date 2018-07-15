@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   devise_for :user, :path_names => {:sign_in => 'login'} 
   root to: "home#top"
   get 'home/top'
+  get 'home/help'  
   resources :users
   namespace :user do
     resources :speeches do 

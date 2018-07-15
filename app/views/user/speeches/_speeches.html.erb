@@ -3,22 +3,32 @@
   <tr>
     <td>
       <div class="speech-block">
-        <div class="speech-block-main">
-          <%= link_to(user_speech_path(speech)) do %>
-            <span data-toggle="tooltip" data-placement="right" data-original-title="<%= speech.overview %>">
-              <%= speech.title %>
-            </span>  
+        <div style="float: left;">
+          <div class="speech-block-main">
+            <%= link_to(user_speech_path(speech)) do %>
+              <span data-toggle="tooltip" data-placement="right" data-original-title="<%= speech.overview %>">
+                <%= speech.title %>
+              </span>  
+            <% end %>
+          </div> 
+          <p class="speech-block-sub">
+            <%= link_to(user_path(speech.user)) do %>
+              <%= speech.user.name %>
+            <% end %>
+          </p>
+          <p class="speech-block-sub">
+            <%= speech.created_at %>
+          </p>
+        </div>
+        <span class="speech-block-right">
+          <% if speech.likes.count.nonzero? %>
+            <p><i class="fa fa-check-circle"></i> <%= speech.likes.count %></p>
           <% end %>
-        </div> 
-        <p class="speech-block-sub">
-          <%= link_to(user_path(speech.user)) do %>
-            <%= speech.user.name %>
+          <% if speech.comments.count.nonzero? %>
+            <p><i class="fa fa-commenting-o" style="font-size: 16px;"></i> <%= speech.comments.count %></p>
           <% end %>
-        </p>
-        <p class="speech-block-sub">
-          <%= speech.created_at %>
-        </p>
-      </div>  
+        </span>  
+      </div>
     </td>
   </tr>
 <% end %>

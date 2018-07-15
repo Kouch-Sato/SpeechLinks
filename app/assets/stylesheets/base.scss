@@ -1,5 +1,6 @@
 body {
   background: #eee;
+  font-size: 16px;
 }
 
 a {
@@ -31,9 +32,9 @@ label {
 }
 
 .speech-show {
-  font-size: 16px;
-  line-height: 32px;
-  width: 650px;
+  font-size: 20px;
+  line-height: 40px;
+  width: 70%;
   text-align: justify;
   text-justify: inter-ideograph;
   margin: 0 auto;
@@ -56,10 +57,17 @@ label {
   padding-right: 30px;
 }
 
+.speech-block-right {
+  float: right;
+  display: inline;
+  font-size: 18px;
+  text-align: right;
+}
+
 .like-fix {
   position: fixed;
-  top: 350px;
-  left: 200px;
+  top: 40%;
+  left: 15%;
   text-align: center;
 }
 
@@ -67,7 +75,23 @@ label {
   font-size: 30px;
   color: #D9230F;  
 }
+
 .like-btn { 
   font-size: 60px;
   padding: 0 10px;
+}
+
+.help-contents {
+  color:#555;
+  width: 90%;
+  margin: 0 auto;
+  
+  h2 {
+    padding: 14px;
+    border-bottom: 2px solid #BBB;
+  }
+
+  p {
+    padding: 4px;
+  }
 }
