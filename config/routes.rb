@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :users
   namespace :user do
     resources :speeches do 
-      resources :likes, only: [:create, :destroy]
+      resources :likes, only: [:create, :destroy, :index]
       resources :comments, only: [:create, :destroy]
     end  
   end

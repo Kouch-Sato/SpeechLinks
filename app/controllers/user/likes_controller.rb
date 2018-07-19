@@ -12,4 +12,9 @@ class User::LikesController < ApplicationController
     @like.delete
     redirect_to user_speech_path(params[:speech_id])
   end
+
+  def index
+    @speech = Speech.find(params[:speech_id])
+    @users = @speech.liked_users
+  end
 end

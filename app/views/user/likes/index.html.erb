@@ -1,0 +1,8 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h2><%= @speech.title %>を読んだ人</h2>
+  </div>
+  <div class="panel-body" style="padding: 0;">
+    <%= render partial: "users/users", locals: { users: @users } %>
+  </div>
+</div>

@@ -40,7 +40,9 @@
     
     <div class="like-fix">
       <div class="like-count">
-        <%= @speech.likes.count %>
+        <%= link_to user_speech_likes_path(@speech) do %>    
+          <%= @speech.likes.count %>
+        <% end %>  
       </div>
       <div class="like-btn">
         <% if current_user.likes.find_by(speech_id: @speech.id) %>
