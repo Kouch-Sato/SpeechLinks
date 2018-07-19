@@ -1,0 +1,21 @@
+<table class="table table-hover">
+<% users.each do |user| %>
+  <tr>
+    <td>
+      <div class="speech-block">
+        <div class="speech-block-main">
+        <%= link_to(user_path(user)) do %>
+            <%= user.name %>
+          <% end %>
+        </div> 
+        <p class="speech-block-sub">
+          <%= user.university %> <%= user.grade %>年生
+        </p>
+        <p class="speech-block-sub">
+          スピーチの数：<%= user.speeches.count %>
+        </p>
+      </div>  
+    </td>
+  </tr>  
+<% end %>
+</table>
