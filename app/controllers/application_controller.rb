@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
 
   protected
   def configure_permitted_parameters
-    # sign_inのときに、usernameも許可する
+    # sign_inのときに、usernameなどの情報も許可する
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :bio, :university, :grade])
   end
 end
