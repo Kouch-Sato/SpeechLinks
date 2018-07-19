@@ -3,24 +3,32 @@
     <h2><%= @user.name %></h2>
   </div>
   <div class="panel-body">
-    <blockquote style="word-wrap: break-word;">
-      <p><%= @user.university %> <%= @user.grade %>年生</p>
-      <p><%= simple_format(@user.bio) %></p>
-    </blockquote>   
-    <ul class="nav nav-tabs row">
-      <li class="active col-sm-4" style="padding: 0;"><a href="#speeches" data-toggle="tab" style="text-align: center;">この人のスピーチ <span class="badge"><%= @speeches.count %></span></a></li>
-      <li class="col-sm-4" style="padding: 0;"><a href="#liked_speeches" data-toggle="tab" style="text-align: center;">読んだスピーチ <span class="badge"><%= @liked_speeches.count %></span></a></li>
-      <li class="col-sm-4" style="padding: 0;"><a href="#commented_speeches" data-toggle="tab" style="text-align: center;">コメントしたスピーチ <span class="badge"><%= @commented_speeches.count %></span></a></li>
-    </ul>
-    <div id="myTabContent" class="tab-content">
-      <div class="tab-pane fade active in" id="speeches">
-        <%= render partial: "user/speeches/speeches", locals: { speeches: @speeches } %>
+    <div class="row" style="width: 90%; margin: 50px auto;">
+      <blockquote style="word-wrap: break-word; margin: 20x;" class="col-sm-8">
+        <p><%= @user.university %> <%= @user.grade %>年生</p>
+        <p><%= simple_format(@user.bio) %></p>
+      </blockquote>   
+      <div class="col-sm-4" style="text-align: center;">
+        <p>Links Point</p>
+        <p style= "color: #D9230F; font-size: 40px; font-family: cursive;"><%= @user.links_point %></p>
       </div>
-      <div class="tab-pane fade" id="liked_speeches">
-        <%= render partial: "user/speeches/speeches", locals: { speeches: @liked_speeches } %>
-      </div>
-      <div class="tab-pane fade" id="commented_speeches">
-        <%= render partial: "user/speeches/speeches", locals: { speeches: @commented_speeches } %>
+    </div>
+    <div>
+      <ul class="nav nav-tabs row">
+        <li class="active col-sm-4" style="padding: 0;"><a href="#speeches" data-toggle="tab" style="text-align: center;">この人のスピーチ <span class="badge"><%= @speeches.count %></span></a></li>
+        <li class="col-sm-4" style="padding: 0;"><a href="#liked_speeches" data-toggle="tab" style="text-align: center;">読んだスピーチ <span class="badge"><%= @liked_speeches.count %></span></a></li>
+        <li class="col-sm-4" style="padding: 0;"><a href="#commented_speeches" data-toggle="tab" style="text-align: center;">コメントしたスピーチ <span class="badge"><%= @commented_speeches.count %></span></a></li>
+      </ul>
+      <div id="myTabContent" class="tab-content">
+        <div class="tab-pane fade active in" id="speeches">
+          <%= render partial: "user/speeches/speeches", locals: { speeches: @speeches } %>
+        </div>
+        <div class="tab-pane fade" id="liked_speeches">
+          <%= render partial: "user/speeches/speeches", locals: { speeches: @liked_speeches } %>
+        </div>
+        <div class="tab-pane fade" id="commented_speeches">
+          <%= render partial: "user/speeches/speeches", locals: { speeches: @commented_speeches } %>
+        </div>
       </div>
     </div>
 
