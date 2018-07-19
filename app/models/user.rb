@@ -16,4 +16,16 @@ class User < ApplicationRecord
   validates :grade, presence: true
 
   enum university: [:東京大学, :慶應義塾大学, :聖心女子大学, :津田塾大学, :筑波大学, :立教大学, :上智大学]
+
+  def links_point
+    links_point = 0
+    self.speeches.each do |speech|
+      links_point += 3
+      links_point += speech.likes.count
+      links_point += speech.comments.count
+    end
+    links_point += self.likes.count
+    links_point += self.commented_speeches.count
+    return links_point
+  end
 end
