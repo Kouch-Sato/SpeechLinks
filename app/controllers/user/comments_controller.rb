@@ -5,8 +5,11 @@ class User::CommentsController < ApplicationController
   def create 
     @comment = current_user.comments.new(comment_params)
     @comment.speech_id = params[:speech_id]
-    @comment.save
-    redirect_to user_speech_path(params[:speech_id]), notice: "コメントを投稿しました！"
+    if @comment.save
+      redirect_to user_speech_path(params[:speech_id]), notice: "コメントを投稿しました！"
+    else 
+      redirect_to user_speech_path(params[:speech_id]), alert: "コメント内容を入力してください"
+    end
   end
 
   def destroy
