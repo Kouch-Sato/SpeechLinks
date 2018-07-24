@@ -86,6 +86,10 @@ GEM
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     google-analytics-rails (1.1.1)
+    hirb (0.7.3)
+    hirb-unicode (0.0.5)
+      hirb (~> 0.5)
+      unicode-display_width (~> 0.1.1)
     i18n (1.0.1)
       concurrent-ruby (~> 1.0)
     jbuilder (2.7.0)
@@ -209,6 +213,7 @@ GEM
       thread_safe (~> 0.1)
     uglifier (4.1.16)
       execjs (>= 0.3.0, < 3)
+    unicode-display_width (0.1.1)
     unicorn (5.4.1)
       kgio (~> 2.6)
       raindrops (~> 0.7)
@@ -238,6 +243,8 @@ DEPENDENCIES
   font-awesome-rails
   font-awesome-sass
   google-analytics-rails
+  hirb
+  hirb-unicode
   jbuilder (~> 2.5)
   jquery-rails
   jquery-ui-rails
