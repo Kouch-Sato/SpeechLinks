@@ -11,6 +11,7 @@ class User::SpeechesController < ApplicationController
   def create
     @speech = current_user.speeches.new(speech_params)
     if @speech.save
+      current_user.likes.create(speech_id: @speech.id)
       redirect_to user_speech_path(@speech), notice: "スピーチを登録しました"
     else 
       render :new
