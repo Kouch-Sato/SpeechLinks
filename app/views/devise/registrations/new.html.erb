@@ -18,7 +18,7 @@
 
       <div class="field">
         <%= f.label :university %><br />
-        <%= f.select :university, User.universities.keys, class: "form-control" %>
+        <%= f.select :university, User.universities.keys, class: "form-control", prompt: "選択してください" %>
       </div>
 
       <div class="field">
