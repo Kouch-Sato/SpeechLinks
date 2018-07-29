@@ -3,7 +3,7 @@
     <h2>あなたのスピーチを登録しましょう！</h2>
   </div>
   <div class="panel-body">
-    <%= render partial: "shared/error_message", locals: { model: @speech } %>
+    <%= render "shared/error_message", model: @speech %>
     <%= form_for [:user, @speech] do |f| %>
       <%= f.label :title, "タイトル" %>
       <%= f.text_field :title, class: "form-control", placeholder: "タイトル", style: "font-size: 24px; padding: 20px;" %>
