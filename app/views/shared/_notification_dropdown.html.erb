@@ -1,0 +1,19 @@
+<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <i class="fa fa-bell"></i>
+  <span class="badge notification-badge"><%= current_user.notification.not_read.count %></span>
+</a>
+<ul class="dropdown-menu" role="menu">
+  <% current_user.notification.each do |notification| %>
+    <% if notification.read %>
+    <li class="notification-content">
+    <% else %>
+    <li style= "background: #eee;" class="notification-content">
+    <% end %>
+      <%= link_to do %>
+        <p><%= "#{notification.notified_by.name}さんが#{notification.speech.title}に#{notification.notified_type}しました" %></p>
+        <span><%= notification.created_at %></span>
+      <% end %>  
+    </li>
+  <% end %>
+  <%= link_to "もっと見る" %>
+</ul>
