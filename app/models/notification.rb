@@ -3,8 +3,6 @@ class Notification < ApplicationRecord
   belongs_to :speech
   belongs_to :user
 
-
-
-  Notification.create(user_id: 1, speech_id: 1, notified_by_id: 2)
+  scope :not_read, -> { where(read: false) }
   
 end
