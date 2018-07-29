@@ -1,0 +1,37 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h2>Speakers</h2>
+  </div>
+  <div class="panel-body" style="padding: 0;">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Speech数</th>
+          <th>読んだ！数</th>
+          <th>コメント数</th>
+          <th>Links Point</th>
+          <th>最終ログイン</th>
+          <th>前回ログイン</th>
+          <th>ログイン回数</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @users.each do |user| %>
+          <tr>
+            <td><%= user.id %></td>
+            <td><%= user.name %></td>
+            <td><%= user.speeches.count %></td>
+            <td><%= user.likes.count %></td>
+            <td><%= user.comments.count %></td>
+            <td><%= user.links_point %></td>
+            <td><%= user.current_sign_in_at %></td>
+            <td><%= user.last_sign_in_at %></td>
+            <td><%= user.sign_in_count %></td>
+          </tr>   
+        <% end %> 
+      <tbody>
+    </table>
+  </div>
+</div>
