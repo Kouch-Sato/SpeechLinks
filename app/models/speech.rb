@@ -4,6 +4,7 @@ class Speech < ApplicationRecord
   belongs_to :user
   has_many :liked_users, through: :likes, source: :user
   has_many :commented_users, through: :comments, source: :user
+  has_many :notification, dependent: :delete_all
 
   validates :title, presence: true
   validates :content, presence: true
