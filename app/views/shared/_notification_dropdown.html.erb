@@ -3,17 +3,17 @@
   <span class="badge notification-badge"><%= current_user.notification.not_read.count %></span>
 </a>
 <ul class="dropdown-menu" role="menu">
-  <% current_user.notification.each do |notification| %>
+  <% current_user.notification.order("created_at DESC").each do |notification| %>
     <% if notification.read %>
-    <li class="notification-content">
+      <li class="notification-content">
     <% else %>
-    <li style= "background: #eee;" class="notification-content">
+      <li style= "background: #eee;" class="notification-content">
     <% end %>
       <%= link_to do %>
         <p><%= "#{notification.notified_by.name}さんが#{notification.speech.title}に#{notification.notified_type}しました" %></p>
-        <span><%= notification.created_at %></span>
+        <span><%= notification.how_long_ago %></span>
       <% end %>  
-    </li>
+      </li>
   <% end %>
   <%= link_to "もっと見る" %>
 </ul>
