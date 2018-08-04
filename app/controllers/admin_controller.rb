@@ -1,6 +1,6 @@
 class AdminController < ApplicationController
-  before_action :ensure_admin_user
   before_action :authenticate_user!
+  before_action :ensure_admin_user
   layout "admin"
 
   private
