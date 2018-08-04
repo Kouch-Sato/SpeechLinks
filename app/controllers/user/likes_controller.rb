@@ -1,5 +1,5 @@
 class User::LikesController < ApplicationController
-  before_action :authenticate_user! 
+  before_action :authenticate_user!
   after_action :create_notifications, only: [:create]
 
   def create
@@ -20,7 +20,7 @@ class User::LikesController < ApplicationController
     @users = @speech.liked_users
   end
 
-  private 
+  private
   def create_notifications
     return if @speech.user_id == current_user.id
     Notification.create(

@@ -36,5 +36,5 @@ class UsersController < ApplicationController
     if current_user.id != params[:id].to_i
       redirect_to user_speeches_path, alert: "他のユーザーの情報は編集できません"
     end
-  end  
+  end
 end

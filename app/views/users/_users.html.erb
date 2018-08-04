@@ -7,14 +7,14 @@
         <%= link_to(user_path(user)) do %>
             <%= user.name %>
           <% end %>
-        </div> 
+        </div>
         <p class="speech-block-sub">
           <%= user.university %> <%= user.grade %>年生
         </p>
         <p class="speech-block-sub">
           スピーチの数：<%= user.speeches.count %>
         </p>
-      </div>  
+      </div>
     </td>
     <td>
       <div style="text-align: center; padding-top: 20px;" data-toggle="tooltip" data-placement="right" data-original-title="LinksPointはSpeackerの貢献度を表し、投稿したスピーチが読まれたり、他の人のスピーチを読んだりすることで上昇していきます。">
@@ -22,6 +22,6 @@
         <p style= "color: #D9230F; font-size: 28px; font-family: cursive;"><%= user.links_point %></p>
       </div>
     </td>
-  </tr>  
-<% end %> 
+  </tr>
+<% end %>
 </table>

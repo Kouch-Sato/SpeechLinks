@@ -13,7 +13,7 @@ class User::SpeechesController < ApplicationController
     if @speech.save
       current_user.likes.create(speech_id: @speech.id)
       redirect_to user_speech_path(@speech), notice: "スピーチを登録しました"
-    else 
+    else
       render :new
     end
   end

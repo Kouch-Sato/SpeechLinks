@@ -8,9 +8,9 @@
             <%= link_to(user_speech_path(speech)) do %>
               <span data-toggle="tooltip" data-placement="right" data-original-title="<%= speech.overview %>">
                 <%= speech.title %>
-              </span>  
+              </span>
             <% end %>
-          </div> 
+          </div>
           <p class="speech-block-sub">
             <%= link_to(user_path(speech.user)) do %>
               <%= speech.user.name %>
@@ -24,24 +24,24 @@
           <% if speech.likes.count.nonzero? %>
             <p>
               <% if current_user.likes.find_by(speech_id: speech.id) %>
-                <i class="fa fa-check-circle" style="color: #D9230F;"></i> 
+                <i class="fa fa-check-circle" style="color: #D9230F;"></i>
               <% else %>
-                <i class="fa fa-check-circle"></i> 
-              <% end %>  
+                <i class="fa fa-check-circle"></i>
+              <% end %>
               <%= speech.likes.count %>
             </p>
           <% end %>
           <% if speech.comments.count.nonzero? %>
             <p>
               <% if current_user.comments.find_by(speech_id: speech.id) %>
-                <i class="fa fa-commenting-o" style="color: #D9230F; font-size: 16px;"></i> 
+                <i class="fa fa-commenting-o" style="color: #D9230F; font-size: 16px;"></i>
               <% else %>
-                <i class="fa fa-commenting-o"></i> 
-              <% end %>  
+                <i class="fa fa-commenting-o"></i>
+              <% end %>
               <%= speech.comments.count %>
             </p>
           <% end %>
-        </span>  
+        </span>
       </div>
     </td>
   </tr>

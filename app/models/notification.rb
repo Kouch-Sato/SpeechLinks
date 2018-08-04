@@ -4,7 +4,7 @@ class Notification < ApplicationRecord
   belongs_to :user
 
   scope :not_read, -> { where(read: false) }
-  
+
   def how_long_ago
     if (Time.now - self.created_at) < 60 * 60
       # 1時間以内なら

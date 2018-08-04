@@ -1,13 +1,13 @@
 class User::CommentsController < ApplicationController
-  before_action :authenticate_user! 
-  before_action :ensure_comment_owner, only: [:destroy]  
+  before_action :authenticate_user!
+  before_action :ensure_comment_owner, only: [:destroy]
 
-  def create 
+  def create
     @comment = current_user.comments.new(comment_params)
     @comment.speech_id = params[:speech_id]
     if @comment.save
       redirect_to user_speech_path(params[:speech_id]), notice: "コメントを投稿しました！"
-    else 
+    else
       redirect_to user_speech_path(params[:speech_id]), alert: "コメント内容を入力してください"
     end
   end
