@@ -1,18 +1,19 @@
 Rails.application.routes.draw do
 
-  devise_for :user, :path_names => {:sign_in => 'login'} 
+  devise_for :user, :path_names => {:sign_in => 'login'}
   root to: "home#top"
   get 'home/top'
-  get 'home/help'  
+  get 'home/help'
   resources :users
   namespace :user do
-    resources :speeches do 
+    resources :notifications, only: [:index, :show]
+    resources :speeches do
       resources :likes, only: [:create, :destroy, :index]
       resources :comments, only: [:create, :destroy]
-    end  
+    end
   end
 
-  namespace :admin do 
+  namespace :admin do
     resources :likes, only: [:index]
     resources :users, only: [:index]
   end
