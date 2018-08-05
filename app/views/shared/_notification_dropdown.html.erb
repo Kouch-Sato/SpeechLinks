@@ -3,7 +3,7 @@
   <span class="badge notification-badge"><%= current_user.notification.not_read.count %></span>
 </a>
 <ul class="dropdown-menu" role="menu">
-  <% current_user.notification.order("created_at DESC").each do |notification| %>
+  <% current_user.notification.order("created_at DESC").limit(5).each do |notification| %>
     <% if notification.read %>
       <li class="notification-content">
     <% else %>
@@ -15,5 +15,5 @@
       <% end %>
       </li>
   <% end %>
-  <%= link_to "もっと見る" %>
+  <%= link_to "過去の一覧を見る", user_notifications_path %>
 </ul>

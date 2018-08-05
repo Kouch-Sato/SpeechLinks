@@ -2,6 +2,7 @@ class User::NotificationsController < ApplicationController
   before_action :authenticate_user!
 
   def index
+    @notification = current_user.notification.order("created_at DESC")
   end
 
   def show
