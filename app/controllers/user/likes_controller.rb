@@ -1,6 +1,6 @@
 class User::LikesController < ApplicationController
   before_action :authenticate_user!
-  after_action :create_notifications, only: [:create]
+  after_action :create_notification, only: [:create]
 
   def create
     @speech = Speech.find(params[:speech_id])
@@ -21,7 +21,7 @@ class User::LikesController < ApplicationController
   end
 
   private
-  def create_notifications
+  def create_notification
     return if @speech.user_id == current_user.id
     Notification.create(
       user_id: @speech.user.id,
