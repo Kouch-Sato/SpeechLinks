@@ -3,4 +3,8 @@
 @import "bootswatch/simplex/bootswatch";
 @import "font-awesome-sprockets";
 @import "font-awesome";
-@import "base";
+
+@import "bases/variables";
+@import "bases/base";
+
+@import "pages/speech";
