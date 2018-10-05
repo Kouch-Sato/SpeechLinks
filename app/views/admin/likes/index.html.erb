@@ -1,30 +1,56 @@
 <div class="panel panel-default">
   <div class="panel-heading">
-    <h2>読んだ！一覧</h2>
+    <h2>
+      読んだ！一覧
+    </h2>
   </div>
   <div class="panel-body" style="padding: 0;">
     <table class="table table-hover">
       <thead>
         <tr>
-          <th>ID</th>
-          <th>ユーザー</th>
-          <th>作成日時</th>
-          <th>Speech</th>
-          <th>Speaker</th>
-          <th>読んだ！数</th>
+          <th>
+            ID
+          </th>
+          <th>
+            ユーザー
+          </th>
+          <th>
+            作成日時
+          </th>
+          <th>
+            Speech
+          </th>
+          <th>
+            Speaker
+          </th>
+          <th>
+            読んだ！数
+          </th>
         </tr>
       </thead>
       <tbody>
         <% @likes.each do |like| %>
           <tr>
-            <td><%= like.id %></td>
-            <td><%= like.user.name %></td>
-            <td><%= like.created_at %></td>
-            <td><%= like.speech.title %></td>
-            <td><%= like.speech.user.name %></td>
-            <td><%= like.speech.likes.count %></td>
-          </tr>   
-        <% end %> 
+            <td>
+              <%= like.id %>
+            </td>
+            <td>
+              <%= like.user.name %>
+            </td>
+            <td>
+              <%= like.created_at %>
+            </td>
+            <td>
+              <%= like.speech.title %>
+            </td>
+            <td>
+              <%= like.speech.user.name %>
+            </td>
+            <td>
+              <%= like.speech.likes.count %>
+            </td>
+          </tr>
+        <% end %>
       <tbody>
     </table>
   </div>

@@ -4,6 +4,8 @@
   </div>
   <div class="panel-body" style="padding: 0;">
     <%= render "speeches", speeches: @speeches %>
-    <div style="margin: 0 auto; text-align: center;"><%= paginate @speeches %></div>
+    <div style="margin: 0 auto; text-align: center;">
+      <%= paginate @speeches %>
+    </div>
   </div>
 </div>

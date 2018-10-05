@@ -1,6 +1,8 @@
 <div class="panel panel-default">
   <div class="panel-heading">
-    <h2>Speech Linksにログイン</h2>
+    <h2>
+      Speech Linksにログイン
+    </h2>
   </div>
   <div class="panel-body">
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -14,12 +16,12 @@
         <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "パスワードを入力してください" %>
       </div>
 
-      <% if devise_mapping.rememberable? -%>
+      <% if devise_mapping.rememberable? %>
         <div class="field">
           <%= f.check_box :remember_me %>
           <%= f.label :remember_me, "ログインを保存する" %>
         </div>
-      <% end -%>
+      <% end %>
       <br/>
 
       <div class="actions">
@@ -27,6 +29,8 @@
       </div>
     <% end %>
     <br/>
-    <p>アカウントをお持ちでない方は<%= link_to "こちら", new_user_registration_path %></p>
+    <p>
+      アカウントをお持ちでない方は<%= link_to "こちら", new_user_registration_path %>
+    </p>
   </div>
-</div>    
+</div>
