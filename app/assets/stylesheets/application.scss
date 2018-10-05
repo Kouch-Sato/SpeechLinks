@@ -1,10 +1,15 @@
+// import bootstrap & font-awesome
 @import "bootswatch/simplex/variables";
 @import "bootstrap";
 @import "bootswatch/simplex/bootswatch";
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
+// import bases
 @import "bases/variables";
 @import "bases/base";
 
+// import modules
+
+// import pages
 @import "pages/speech";
