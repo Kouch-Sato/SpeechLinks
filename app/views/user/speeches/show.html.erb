@@ -1,16 +1,26 @@
 <div class="panel panel-default">
   <div class="panel-heading">
-    <h2><%= @speech.title %></h2>
+    <h2>
+      <%= @speech.title %>
+    </h2>
   </div>
-  <div class="panel-body">
-    <div style="width: 80%; margin: 10px auto;" class="row">
-      <blockquote class="col-sm-8" style="word-wrap: break-word;">
-        <p><%= simple_format(@speech.overview) %></p>
-        <small><%= link_to @speech.user.name, user_path(@speech.user) %></small>
+  <div class="panel-body speech-container mbl">
+    <div class="speech-overview mtm mbl">
+      <blockquote class="col-sm-8">
+        <p>
+          <%= simple_format(@speech.overview) %>
+        </p>
+        <small>
+          <%= link_to @speech.user.name, user_path(@speech.user) %>
+        </small>
       </blockquote>
-      <div class="col-sm-4" style="text-align: right; padding-top: 20px; font-size: 16px;">
-        <p>登録日時 : <%= @speech.created_at %></p>
-        <p>最終更新日時 : <%= @speech.updated_at %></p>
+      <div class="speech-overview__right col-sm-4 mtm">
+        <p>
+          登録日時 : <%= @speech.created_at %>
+        </p>
+        <p>
+          最終更新日時 : <%= @speech.updated_at %>
+        </p>
         <% if @speech.user_id == current_user.id %>
           <%= link_to edit_user_speech_path(@speech), class: "btn btn-info" do %>
             <i class="fa fa-pencil-square-o"></i> 編集
@@ -22,77 +32,56 @@
       </div>
     </div>
 
-    <br/>
-    <br/>
-    <br/>
-    <div class="speech-show">
-      <div style="text-align: center; font-size: 24px;">
+    <div class="speech-show mbl">
+      <div class="speech-show__title">
         <%= @speech.title %>
       </div>
-      <div style="float: right;">
+      <div class="speech-show__name mbm">
         <%= @speech.user.name %>
       </div>
-      <br/><br/>
-      <div>
+      <div class="speech-show__content">
         <%= safe_join(@speech.content.split("\n"), tag(:br)) %>
       </div>
     </div>
 
-    <div class="like-fix">
-      <div class="like-count">
-        <%= link_to user_speech_likes_path(@speech) do %>
-          <%= @speech.likes.count %>
+    <%= render "like", speech: @speech %>
+
+    <div class="speech-comments">
+      <table class="table speech-comments-table">
+        <% @comments.each do |comment| %>
+          <tr>
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <span>
+                  <%= link_to(user_path(comment.user)) do %>
+                    <%= comment.user.name %>
+                  <% end %>
+                </span>
+                <span class="speech-comments-table__right">
+                  <% if current_user.id == comment.user_id %>
+                    <%= link_to user_speech_comment_path(@speech.id, comment.id), method: :delete, data: {confirm: 'コメントを削除してよろしいですか？'} do %>
+                      <i class="fa fa-trash-o"></i>
+                    <% end %>
+                  <% end %>
+                  <%= comment.created_at %>
+                </span>
+              </div>
+              <div class="panel-body speech-comments-table__text">
+                <%= simple_format(comment.content) %>
+              </div>
+            </div>
+          </tr>
+        <% end %>
+      </table>
+
+      <div class="speech-comments-form">
+        <%= render "shared/error_message", model: @comment %>
+        <%= form_for (@comment), url: user_speech_comments_path(@speech) do |f| %>
+          <%= f.label :content, "スピーチを読んだら感想を書いてあげましょう！" %>
+          <%= f.text_area :content, class: "form-control speech-comments-form__text mbs", rows: 3, placeholder: "ご自身の体験がとても印象的で、心に残るスピーチでした！" %>
+          <%= f.submit "コメントを投稿", class: "btn btn-primary col-sm-12" %>
         <% end %>
       </div>
-      <div class="like-btn">
-        <% if @speech.user_id == current_user.id %>
-          <i class="fa fa-check-circle" data-toggle="tooltip" data-placement="bottom" data-original-title="自分のスピーチは読んだ！済みです" style="color: $red;" ></i>
-        <% else %>
-          <% if current_user.likes.find_by(speech_id: @speech.id) %>
-            <%= link_to user_speech_like_path(@speech.id), method: :delete do %>
-              <i class="fa fa-check-circle" data-toggle="tooltip" data-placement="bottom" data-original-title="読んだ！済み"></i>
-            <% end %>
-          <% else %>
-            <%= link_to user_speech_likes_path(@speech.id), method: :post do %>
-              <i class="fa fa-check-circle-o" data-toggle="tooltip" data-placement="bottom" data-original-title="読んだ！"></i>
-            <% end %>
-          <% end %>
-        <% end %>
-      </div>
-    </div>
-
-    <table class="table table-hover">
-      <% @comments.each do |comment| %>
-        <tr>
-          <div class="panel panel-default" style="width: 80%; margin: 20px auto;">
-            <div class="panel-heading">
-              <%= link_to(user_path(comment.user)) do %>
-                <%= comment.user.name %>
-              <% end %>
-              <span style="float:right">
-              <% if current_user.id == comment.user_id %>
-                <%= link_to user_speech_comment_path(@speech.id, comment.id), method: :delete, data: {confirm: 'コメントを削除してよろしいですか？'} do %>
-                  <i class="fa fa-trash-o"></i>
-                <% end %>
-              <% end %>
-                <%= comment.created_at %>
-              </span>
-            </div>
-            <div class="panel-body">
-              <%= simple_format(comment.content) %>
-            </div>
-          </div>
-        </tr>
-      <% end %>
-    </table>
-
-    <div style="width: 80%; margin: 0 auto;">
-      <%= render "shared/error_message", model: @comment %>
-      <%= form_for (@comment), url: user_speech_comments_path(@speech) do |f| %>
-        <%= f.label :content, "あなたの感想を書いてあげましょう！" %>
-        <%= f.text_area :content, class: "form-control", rows: 3, placeholder: "コメントを書いてましょう！" %>
-        <%= f.submit "コメントを投稿", class: "btn btn-primary", style: "width: 100%; margin-top: 10px;" %>
-      <% end %>
     </div>
   </div>
 </div>

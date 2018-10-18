@@ -2,16 +2,123 @@
  * Speeches
  ****************/
 
+@media (min-width: 768px) {
+  .speech-container {
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (min-width: 992px) {
+  .speech-container {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.speech-overview {
+  display: flex;
+
+  @at-root {
+    #{&}__right {
+      text-align: right;
+      font-size: 16px;
+    }
+  }
+}
+
 .speech-show {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  color: $speech-black;
+  font-family: 'Times New Roman';
   font-size: 20px;
   line-height: 40px;
-  width: 70%;
-  text-align: justify;
-  text-justify: inter-ideograph;
-  margin: 0 auto;
-  font-family: 'Times New Roman';
-  color: #222;
+
+  @at-root {
+    #{&}__title {
+      text-align: center;
+      font-size: 24px;
+    }
+
+    #{&}__name {
+      float: right;
+    }
+
+    #{&}__content {
+      clear: both;
+      text-align: justify;
+    }
+  }
 }
+
+.speech-like {
+  position: fixed;
+  top: 40%;
+  left: 12%;
+  text-align: center;
+
+  @at-root {
+    #{&}__count {
+      font-size: 30px;
+      color: $red;
+    }
+
+    #{&}__button {
+      font-size: 60px;
+      padding: 0 10px;
+    }
+
+    #{&}__icon {
+      color: gray;
+
+      &.checked {
+        color: $red;
+      }
+    }
+  }
+}
+
+.speech-comments {
+  width: 100%;
+}
+
+.speech-comments-table {
+  @at-root {
+    #{&}__right {
+      float: right;
+    }
+
+    #{&}__text {
+      padding: 10px;
+
+      p {
+        margin: 0;
+      }
+    }
+
+  }
+}
+
+.speech-comments-form {
+  @at-root {
+    #{&}__text {
+      font-size: 16px;
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
 
 .speech-block {
   margin: 20px;
@@ -33,22 +140,5 @@
   display: inline;
   font-size: 18px;
   text-align: right;
-}
-
-.like-fix {
-  position: fixed;
-  top: 40%;
-  left: 15%;
-  text-align: center;
-}
-
-.like-count {
-  font-size: 30px;
-  color: $red;
-}
-
-.like-btn {
-  font-size: 60px;
-  padding: 0 10px;
 }
 
