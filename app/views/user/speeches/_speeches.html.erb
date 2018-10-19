@@ -1,48 +1,46 @@
 <table class="table table-hover">
   <% speeches.each do |speech| %>
-    <tr>
-      <td>
-        <div class="speech-block">
-          <div style="float: left;">
-            <div class="speech-block-main">
-              <%= link_to(user_speech_path(speech)) do %>
-                <span data-toggle="tooltip" data-placement="right" data-original-title="<%= speech.overview %>">
-                  <%= speech.title %>
-                </span>
-              <% end %>
-            </div>
-            <p class="speech-block-sub">
-              <%= link_to(user_path(speech.user)) do %>
-                <%= speech.user.name %>
-              <% end %>
-            </p>
-            <p class="speech-block-sub">
-              <%= speech.created_at %>
-            </p>
-          </div>
-          <span class="speech-block-right">
-            <% if speech.likes.count.nonzero? %>
-              <p>
-                <% if current_user.likes.find_by(speech_id: speech.id) %>
-                  <i class="fa fa-check-circle" style="color: $red;"></i>
-                <% else %>
-                  <i class="fa fa-check-circle"></i>
-                <% end %>
-                <%= speech.likes.count %>
-              </p>
-            <% end %>
-            <% if speech.comments.count.nonzero? %>
-              <p>
-                <% if current_user.comments.find_by(speech_id: speech.id) %>
-                  <i class="fa fa-commenting-o" style="color: $red; font-size: 16px;"></i>
-                <% else %>
-                  <i class="fa fa-commenting-o"></i>
-                <% end %>
-                <%= speech.comments.count %>
-              </p>
-            <% end %>
-          </span>
+    <tr class="speech-index-table">
+      <td class="speech-index-table__td">
+        <div class="speech-index-table__title">
+          <%= link_to(user_speech_path(speech)) do %>
+            <span data-toggle="tooltip" data-placement="right" data-original-title="<%= speech.overview %>">
+              <%= speech.title %>
+            </span>
+          <% end %>
         </div>
+        <p class="speech-index-table__user">
+          <%= link_to(user_path(speech.user)) do %>
+            <%= speech.user.name %>
+          <% end %>
+        </p>
+        <span class="speech-index-table__created">
+          <%= speech.created_at %>
+        </span>
+      </td>
+      <td class="speech-index-table__td">
+        <span class="speech-index-table__right">
+          <% if speech.likes.count.nonzero? %>
+            <p>
+              <% if current_user.likes.find_by(speech_id: speech.id) %>
+                <i class="fa fa-check-circle speech-index-table__icon checked"></i>
+              <% else %>
+                <i class="fa fa-check-circle speech-index-table__icon"></i>
+              <% end %>
+              <%= speech.likes.count %>
+            </p>
+          <% end %>
+          <% if speech.comments.count.nonzero? %>
+            <p>
+              <% if current_user.comments.find_by(speech_id: speech.id) %>
+                <i class="fa fa-commenting-o speech-index-table__icon checked"></i>
+              <% else %>
+                <i class="fa fa-commenting-o speech-index-table__icon"></i>
+              <% end %>
+              <%= speech.comments.count %>
+            </p>
+          <% end %>
+        </span>
       </td>
     </tr>
   <% end %>

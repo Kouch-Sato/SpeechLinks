@@ -1,5 +1,5 @@
 /****************
- * Speeches
+ * speeches#show
  ****************/
 
 @media (min-width: 768px) {
@@ -112,33 +112,39 @@
 }
 
 
+/****************
+ * speeches#index
+ ****************/
 
+.speech-index-table {
+  padding: 10px;
 
+  @at-root {
+    #{&}__title {
+      padding: 10px;
+      font-size: 32px;
+    }
 
+    #{&}__user {
+      padding-right: 20px;
+      float: left;
+      padding-left: 10px;
+    }
 
+    #{&}__created {
+      float: left;
+    }
 
+    #{&}__right {
+      float: right;
+      font-size: 20px;
+      padding: 10px;
+    }
 
-
-
-.speech-block {
-  margin: 20px;
+    #{&}__icon {
+      &.checked {
+        color: $red;
+      }
+    }
+  }
 }
-
-.speech-block-main {
-  font-size: 32px;
-  color: black;
-}
-
-.speech-block-sub {
-  font-size: 16px;
-  float: left;
-  padding-right: 30px;
-}
-
-.speech-block-right {
-  float: right;
-  display: inline;
-  font-size: 18px;
-  text-align: right;
-}
-
