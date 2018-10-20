@@ -3,36 +3,44 @@
     <h2><%= @user.name %></h2>
   </div>
   <div class="panel-body">
-    <div class="row" style="width: 90%; margin: 50px auto;">
-      <blockquote style="word-wrap: break-word; margin: 20x;" class="col-sm-8">
-        <p><%= @user.university %> <%= @user.grade %>年生</p>
-        <p><%= simple_format(@user.bio) %></p>
+    <div class="user-profile mtl mbl">
+      <blockquote class="span8 user-profile__left">
+        <p>
+          <%= @user.university %> <%= @user.grade %>年生
+        </p>
+        <p>
+          <%= simple_format(@user.bio) %>
+        </p>
       </blockquote>
-      <div class="col-sm-4" style="text-align: center;">
-        <p>Links Point</p>
-        <p style= "color: $red; font-size: 40px; font-family: cursive;"><%= @user.links_point %></p>
-      </div>
+      <span class="span4 user-profile__right">
+        <p class="user-links-point__title">
+          Links Point
+        </p>
+        <p class="user-links-point__points">
+          <%= @user.links_point %>
+        </p>
+      </span>
     </div>
     <div>
-      <ul class="nav nav-tabs row">
-        <li class="active col-sm-4" style="padding: 0;">
-          <a href="#speeches" data-toggle="tab" style="text-align: center;">
+      <ul class="nav nav-tabs span12">
+        <li class="user-tab active">
+          <a class="user-tab__link" href="#my_speeches" data-toggle="tab">
             この人のスピーチ <span class="badge"><%= @speeches.count %></span>
           </a>
         </li>
-        <li class="col-sm-4" style="padding: 0;">
-          <a href="#liked_speeches" data-toggle="tab" style="text-align: center;">
+        <li class="user-tab">
+          <a class="user-tab__link" href="#liked_speeches" data-toggle="tab">
             読んだスピーチ <span class="badge"><%= @liked_speeches.count %></span>
           </a>
         </li>
-        <li class="col-sm-4" style="padding: 0;">
-          <a href="#commented_speeches" data-toggle="tab" style="text-align: center;">
+        <li class="user-tab">
+          <a class="user-tab__link" href="#commented_speeches" data-toggle="tab">
             コメントしたスピーチ <span class="badge"><%= @commented_speeches.count %></span>
           </a>
         </li>
       </ul>
       <div id="myTabContent" class="tab-content">
-        <div class="tab-pane fade active in" id="speeches">
+        <div class="tab-pane fade active in" id="my_speeches">
           <%= render "user/speeches/speeches", speeches: @speeches %>
         </div>
         <div class="tab-pane fade" id="liked_speeches">

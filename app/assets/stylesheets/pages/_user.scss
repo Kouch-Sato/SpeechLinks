@@ -1,3 +1,44 @@
 /****************
- * User
+ * users#show
  ****************/
+
+.user-profile {
+  width:  80%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+
+  @at-root {
+    #{&}__left {
+      word-wrap: break-word;
+    }
+
+    #{&}__right {
+      text-align: center;
+    }
+  }
+}
+
+.user-links-point {
+  @at-root {
+    #{&}__title {
+      font-size:  20px;
+    }
+
+    #{&}__points {
+      font-family: $links-point-font;
+      font-size: 40px;
+      color: $red;
+    }
+  }
+}
+
+.user-tab {
+  width: 33.3333%;
+
+  @at-root {
+    #{&}__link {
+      text-align: center;
+    }
+  }
+}
