@@ -4,33 +4,31 @@
       Speech Linksにログイン
     </h2>
   </div>
-  <div class="panel-body">
+  <div class="panel-body inner-m">
+    <p>
+      アカウントをお持ちでない方は<%= link_to "アカウント新規作成", new_user_registration_path %>
+    </p>
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <div class="field">
-        <%= f.label :email %><br />
+      <div class="field mbm">
+        <%= f.label :email %>
         <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "メールアドレスを入力してください" %>
       </div>
 
-      <div class="field">
-        <%= f.label :password %><br />
+      <div class="field mbm">
+        <%= f.label :password %>
         <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "パスワードを入力してください" %>
       </div>
 
       <% if devise_mapping.rememberable? %>
-        <div class="field">
+        <div class="field mbm">
           <%= f.check_box :remember_me %>
           <%= f.label :remember_me, "ログインを保存する" %>
         </div>
       <% end %>
-      <br/>
 
       <div class="actions">
-        <%= f.submit "Speech Linksにログイン！", class: "btn btn-primary", style: "width: 100%;" %>
+        <%= f.submit "Speech Linksにログイン！", class: "btn btn-primary span12" %>
       </div>
     <% end %>
-    <br/>
-    <p>
-      アカウントをお持ちでない方は<%= link_to "こちら", new_user_registration_path %>
-    </p>
   </div>
 </div>
