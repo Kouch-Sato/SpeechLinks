@@ -42,3 +42,34 @@
     }
   }
 }
+
+/****************
+ * users#index
+ ****************/
+
+.user-index-table {
+  @at-root {
+    #{&}__name {
+      font-size: 40px;
+      padding: 10px;
+    }
+
+    #{&}__university {
+      float: left;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+
+    #{&}__right {
+      padding: 15px;
+      float: right;
+      text-align: center;
+    }
+
+    #{&}__links-point {
+      font-family: $links-point-font;
+      font-size: 28px;
+      color: $red;
+    }
+  }
+}

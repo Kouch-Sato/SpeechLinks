@@ -1,27 +1,29 @@
-<table class="table table-hover">
-<% users.each do |user| %>
-  <tr>
-    <td>
-      <div class="speech-block">
-        <div class="speech-block-main">
-        <%= link_to(user_path(user)) do %>
+<table class="table table-hover user-index-table">
+  <% users.each do |user| %>
+    <tr>
+      <td>
+        <div class="user-index-table__name">
+          <%= link_to(user_path(user)) do %>
             <%= user.name %>
           <% end %>
         </div>
-        <p class="speech-block-sub">
+        <p class="user-index-table__university">
           <%= user.university %> <%= user.grade %>年生
         </p>
-        <p class="speech-block-sub">
+        <span class="user-index-table__speeches">
           スピーチの数：<%= user.speeches.count %>
-        </p>
-      </div>
-    </td>
-    <td>
-      <div style="text-align: center; padding-top: 20px;" data-toggle="tooltip" data-placement="right" data-original-title="LinksPointはSpeackerの貢献度を表し、投稿したスピーチが読まれたり、他の人のスピーチを読んだりすることで上昇していきます。">
-        <p>Links Point</p>
-        <p style= "color: $red; font-size: 28px; font-family: cursive;"><%= user.links_point %></p>
-      </div>
-    </td>
-  </tr>
-<% end %>
+        </span>
+      </td>
+      <td>
+        <div class="user-index-table__right" data-toggle="tooltip" data-placement="right" data-original-title="LinksPointは投稿したスピーチが読まれたり、他の人のスピーチを読んだりすることで上昇していきます。">
+          <p>
+            Links Point
+          </p>
+          <p class="user-index-table__links-point">
+            <%= user.links_point %>
+          </p>
+        </div>
+      </td>
+    </tr>
+  <% end %>
 </table>
