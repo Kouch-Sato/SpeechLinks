@@ -13,15 +13,19 @@
   color: $red;
 }
 
-.alert {
-  font-size: 16px;
-}
+.navbar-notification {
+  @at-root {
+    #{&}__badge {
+      font-size: 0.5rem;
+    }
 
-.notification-badge {
-  font-size: 0.5rem;
-}
+    #{&}__list {
+      border-bottom: 1px solid $border-color;
+    }
 
-.notification-content {
-  padding: 8px 0;
-  border-bottom: 2px solid #ddd;
+    #{&}__more {
+      text-align: center;
+      padding: 5px;
+    }
+  }
 }

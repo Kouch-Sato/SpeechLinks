@@ -1,19 +1,27 @@
 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
   <i class="fa fa-bell"></i>
-  <span class="badge notification-badge"><%= current_user.notification.not_read.count %></span>
+  <span class="badge navbar-notification__badge">
+    <%= current_user.notification.not_read.count %>
+  </span>
 </a>
 <ul class="dropdown-menu" role="menu">
   <% current_user.notification.order("created_at DESC").limit(5).each do |notification| %>
     <% if notification.read %>
-      <li class="notification-content">
+      <li class="navbar-notification__list">
     <% else %>
-      <li style= "background: #eee;" class="notification-content">
+      <li class="navbar-notification__list unread">
     <% end %>
       <%= link_to user_notification_path(notification) do %>
-        <p><%= "#{notification.notified_by.name}さんが#{notification.speech.title}に#{notification.notified_type}しました" %></p>
-        <span><%= time_ago_in_words(notification.created_at) %></span>
+        <p>
+          <%= "#{notification.notified_by.name}さんが「#{notification.speech.title}」に#{notification.notified_type}しました" %>
+        </p>
+        <span>
+          <%= time_ago_in_words(notification.created_at) %>前
+        </span>
       <% end %>
       </li>
   <% end %>
-  <%= link_to "過去の一覧を見る", user_notifications_path %>
+  <div class="navbar-notification__more">
+    <%= link_to "過去の一覧を見る", user_notifications_path %>
+  </div>
 </ul>
