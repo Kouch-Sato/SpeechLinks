@@ -79,7 +79,7 @@
         <%= form_for (@comment), url: user_speech_comments_path(@speech) do |f| %>
           <%= f.label :content, "スピーチを読んだら感想を書いてあげましょう！" %>
           <%= f.text_area :content, class: "form-control speech-comments-form__text mbs", rows: 3, placeholder: "ご自身の体験がとても印象的で、心に残るスピーチでした！" %>
-          <%= f.submit "コメントを投稿", class: "btn btn-primary col-sm-12" %>
+          <%= f.submit "コメントを投稿", class: "btn btn-primary span12" %>
         <% end %>
       </div>
     </div>

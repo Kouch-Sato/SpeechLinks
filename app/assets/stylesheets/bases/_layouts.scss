@@ -2,18 +2,6 @@
  * Layout
  ****************/
 
-.panel-body {
-  padding: 0;
-}
-
-.table {
-  margin-bottom: 0;
-}
-
-td {
-  border-bottom: 1px solid #ddd;
-}
-
 @media (min-width: 768px) {
   .container {
     width: 100%;
@@ -31,3 +19,26 @@ td {
     width: 1170px;
   }
 }
+
+.col {
+  display: block;
+  float: left;
+  margin-left: 2%;
+
+  &:first-child {
+    margin-left: 0;
+  }
+}
+
+.span1 { width: 6.5%; }
+.span2 { width: 15.0%; }
+.span3 { width: 23.5%; }
+.span4 { width: 32.0%; }
+.span5 { width: 40.5%; }
+.span6 { width: 49.0%; }
+.span7 { width: 57.5%; }
+.span8 { width: 66.0%; }
+.span9 { width: 74.5%; }
+.span10 { width: 83.0%; }
+.span11 { width: 91.5%; }
+.span12 { width: 100%; }
