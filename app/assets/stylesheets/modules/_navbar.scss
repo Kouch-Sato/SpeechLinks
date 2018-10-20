@@ -21,6 +21,10 @@
 
     #{&}__list {
       border-bottom: 1px solid $border-color;
+
+      &.unread {
+        background: $background;
+      }
     }
 
     #{&}__more {
