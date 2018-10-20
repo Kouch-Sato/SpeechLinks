@@ -6,7 +6,7 @@
   </div>
   <div class="panel-body speech-container mbl">
     <div class="speech-overview mtm mbl">
-      <blockquote class="col-sm-8">
+      <blockquote class="span8">
         <p>
           <%= simple_format(@speech.overview) %>
         </p>
@@ -14,7 +14,7 @@
           <%= link_to @speech.user.name, user_path(@speech.user) %>
         </small>
       </blockquote>
-      <div class="speech-overview__right col-sm-4 mtm">
+      <div class="speech-overview__right span4 mtm">
         <p>
           登録日時 : <%= @speech.created_at %>
         </p>
