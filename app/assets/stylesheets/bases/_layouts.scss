@@ -10,6 +10,10 @@
   margin-bottom: 0;
 }
 
+td {
+  border-bottom: 1px solid #ddd;
+}
+
 @media (min-width: 768px) {
   .container {
     width: 100%;
