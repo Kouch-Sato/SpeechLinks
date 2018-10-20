@@ -1,7 +1,7 @@
 <table class="table table-hover speech-index-table">
   <% speeches.each do |speech| %>
-    <tr class="speech-index-table__tr">
-      <td class="speech-index-table__td">
+    <tr>
+      <td>
         <div class="speech-index-table__title">
           <%= link_to(user_speech_path(speech)) do %>
             <span data-toggle="tooltip" data-placement="right" data-original-title="<%= speech.overview %>">
@@ -18,7 +18,7 @@
           <%= speech.created_at %>
         </span>
       </td>
-      <td class="speech-index-table__td">
+      <td>
         <span class="speech-index-table__right">
           <% if speech.likes.count.nonzero? %>
             <p>
