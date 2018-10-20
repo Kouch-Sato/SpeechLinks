@@ -1,7 +1,7 @@
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="true">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar" aria-expanded="false">
         <span class="sr-only">Speech Links</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -12,7 +12,7 @@
       <% end %>
     </div>
     <% if user_signed_in? %>
-      <div class="navbar-collapse collapse in" id="bs-example-navbar-collapse-1" aria-expanded="true">
+      <div class="navbar-collapse collapse in" id="main-navbar" aria-expanded="false">
         <ul class="nav navbar-nav">
           <li>
             <%= link_to user_speeches_path do %>
@@ -31,26 +31,28 @@
               <i class="fa fa-pencil-square-o"></i> スピーチ登録
             <% end %>
           </li>
-          <li>
-            <%= link_to user_path(current_user) do %>
-              <i class="fa fa-user-circle"></i> <%= current_user.name %>
-            <% end %>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+              <i class="fa fa-user-circle"></i> <%= current_user.name %> <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu" role="menu">
+              <li>
+                <%= link_to "プロフィール", user_path(current_user) %>
+              </li>
+              <li>
+                <%= link_to "プロフィール編集", edit_user_path(current_user) %>
+              </li>
+              <li class="divider"></li>
+              <li>
+                <%= link_to "SpeechLinksの使い方", home_help_path %>
+              </li>
+              <li>
+                <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+              </li>
+            </ul>
           </li>
           <li>
             <%= render "shared/notification_dropdown" %>
-          </li>
-          <li>
-            <%= link_to home_help_path do %>
-              <i class="fa fa-question-circle-o"></i>
-            <% end %>
-          </li>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="caret"></span></a>
-            <ul class="dropdown-menu" role="menu">
-              <li><%= link_to "プロフィール編集", edit_user_path(current_user) %></li>
-              <li class="divider"></li>
-              <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
-            </ul>
           </li>
         </ul>
       </div>
