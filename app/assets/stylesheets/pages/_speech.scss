@@ -148,3 +148,24 @@
     }
   }
 }
+
+/****************
+ * speeches#new edit
+ ****************/
+
+.speech-form {
+  @at-root {
+    #{&}__title {
+      font-size: 20px;
+    }
+
+    #{&}__overview {
+      font-size: 16px;
+
+    }
+
+    #{&}__contents {
+      font-size: 16px;
+    }
+  }
+}

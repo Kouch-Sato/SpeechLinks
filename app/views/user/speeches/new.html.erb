@@ -2,17 +2,16 @@
   <div class="panel-heading">
     <h2>あなたのスピーチを登録しましょう！</h2>
   </div>
-  <div class="panel-body">
+  <div class="panel-body inner-m">
     <%= render "shared/error_message", model: @speech %>
     <%= form_for [:user, @speech] do |f| %>
       <%= f.label :title, "タイトル" %>
-      <%= f.text_field :title, class: "form-control", placeholder: "タイトル", style: "font-size: 24px; padding: 20px;" %>
+      <%= f.text_field :title, class: "form-control speech-form__title mbm", placeholder: "タイトル" %>
       <%= f.label :overview, "紹介文" %>
-      <%= f.text_area :overview, class: "form-control", placeholder: "例：皆さんは「みんなやっているから」という理由で決断をしてしまった経験はありませんか？このスピーチが「10年後の自分」を考えるきっかけになれば嬉しいです！添削としてではなく、皆さんの純粋な感想を聞かせてください！", rows: 3, style: "font-size: 16px;" %>
+      <%= f.text_area :overview, class: "form-control speech-form__overview mbm", rows: 3, placeholder: "例：皆さんは「みんなやっているから」という理由で決断をしてしまった経験はありませんか？このスピーチが「10年後の自分」を考えるきっかけになれば嬉しいです！添削としてではなく、皆さんの純粋な感想を聞かせてください！" %>
       <%= f.label :content, "本文（各段落の最初は全角スペース4つ分空けてください）" %>
-      <%= f.text_area :content, class: "form-control", placeholder: "本文を書いてください（各段落の最初は全角スペース4つ分空けてください）", rows: 50 %>
-      <br/>
-      <%= f.submit "スピーチを登録する！", class: "btn btn-primary", style: "width: 100%;" %>
+      <%= f.text_area :content, class: "form-control speech-form__contents mbm", rows: 50, placeholder: "本文を書いてください（各段落の最初は全角スペース4つ分空けてください）" %>
+      <%= f.submit "スピーチを登録する！", class: "btn btn-primary col-sm-12" %>
     <% end %>
   </div>
 </div>
