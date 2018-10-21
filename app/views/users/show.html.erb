@@ -4,6 +4,9 @@
   </div>
   <div class="panel-body">
     <div class="user-profile mtl mbl">
+      <div class="user-profile__image">
+        <%= image_tag @user.image.url %>
+      </div>
       <blockquote class="span8 user-profile__left">
         <p>
           <%= @user.university %> <%= @user.grade %>年生
