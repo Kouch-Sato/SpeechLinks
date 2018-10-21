@@ -203,27 +203,28 @@ ja:
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
     pm: 午後
-  activerecord: 
-    models: 
+  activerecord:
+    models:
       user: ユーザー
       speech: スピーチ
       comment: コメント
-    attributes: 
-      user: 
+    attributes:
+      user:
         email: メールアドレス
         password: パスワード
         name: 名前
         bio: プロフィール欄
         university: 大学名
         grade: 学年
+        image: プロフィール画像
       speech:
         title: タイトル
         content: 本文
         overview: 概要欄
       comment:
-        content: 内容  
-  views: 
-    pagination: 
+        content: 内容
+  views:
+    pagination:
       first: "&laquo; 最初"
       last: "最後 &raquo;"
       previous: "&lsaquo; 前"
