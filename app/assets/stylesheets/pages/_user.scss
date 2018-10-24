@@ -10,11 +10,19 @@
 
   @at-root {
     #{&}__left {
-      word-wrap: break-word;
+      margin-right: 70px;
+    }
+
+    #{&}__image {
+      height: 280px;
+      width: 280px;
     }
 
     #{&}__right {
-      text-align: center;
+    }
+
+    #{&}__bio {
+      word-wrap: break-word;
     }
   }
 }
@@ -29,6 +37,7 @@
       font-family: $links-point-font;
       font-size: 40px;
       color: $red;
+      margin-top: -20px;
     }
   }
 }
@@ -72,4 +81,14 @@
       color: $red;
     }
   }
+}
+
+/****************
+ * user-image
+ ****************/
+
+.user-image {
+  border-radius: 5%;
+  object-fit: cover;
+  border: 2px solid #ddd;
 }
