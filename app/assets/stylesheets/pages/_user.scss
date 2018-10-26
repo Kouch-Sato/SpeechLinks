@@ -58,15 +58,27 @@
 
 .user-index-table {
   @at-root {
+    #{&}__image-td {
+      width: 1px;
+    }
+
+    #{&}__image {
+      height: 100px;
+      width: 100px;
+      margin: 10px;
+      margin-right: 0;
+    }
+
     #{&}__name {
       font-size: 40px;
-      padding: 10px;
     }
 
     #{&}__university {
-      float: left;
       padding-left: 10px;
       padding-right: 10px;
+    }
+
+    #{&}__bio {
     }
 
     #{&}__right {
@@ -90,5 +102,5 @@
 .user-image {
   border-radius: 5%;
   object-fit: cover;
-  border: 2px solid #ddd;
+  border: 1px solid #ddd;
 }
