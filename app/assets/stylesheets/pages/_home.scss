@@ -17,20 +17,70 @@
   }
 }
 
-.home-top-table {
-  width: 100%;
-  border-collapse: separate;
-  border-spacing: 10px 10px;
+.top-speech-index {
+  @at-root {
+    #{&}__title{
+      margin: 0 20px;
+      padding: 20px;
+      border-bottom: 2px solid #ddd;
+    }
+  }
+}
+
+
+.top-speech-3col {
+  display: flex;
+  padding: 20px;
 
   @at-root {
-    #{&}__td {
-      width: 50%;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      font-size: 50px;
-      text-align: center;
-      height: 200px;
-      vertical-align: middle;
+    #{&}__item {
+      width: 32%;
+      margin-left: 2%;
+
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+  }
+}
+
+.top-speech {
+  @at-root {
+    #{&}__title {
+      font-size: 20px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      padding: 3px 0;
+    }
+
+    #{&}__image {
+      width: 60px;
+      height: 60px;
+      float: left;
+      margin-right: 10px;
+    }
+
+    #{&}__user-name {
+      font-size: 24px;
+      position: relative;
+      top: 3px;
+    }
+
+    #{&}__overview {
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 3;
+      padding-top: 0;
+      padding-bottom: 0;
+      font-size: 14px;
+      height: 60px;
+    }
+
+    #{&}__info {
+      padding: 0 10px 10px;
+      font-size: 14px;
     }
   }
 }

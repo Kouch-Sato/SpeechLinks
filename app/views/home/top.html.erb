@@ -1,28 +1,76 @@
 <div class="panel panel-default">
   <div class="panel-heading">
-    <h2>
+    <h1>
       ようこそ！SpeechLinksへ
-    </h2>
+    </h1>
   </div>
   <div class="panel-body">
-    <table class="home-top-table">
-      <tr>
-        <td class="home-top-table__td">
-          <%= link_to "スピーチを登録する", new_user_speech_path %>
-        </td>
-        <td class="home-top-table__td">
-          <%= link_to "スピーチを読む", user_speeches_path %>
-        </td>
-      </tr>
-      <tr>
-        <td class="home-top-table__td">
-          <%= link_to "TopicMaker", "https://kouch-sato.github.io/topic.html" %>
-        </td>
-        <td class="home-top-table__td">
-          <%= link_to "TimeCard", "https://kouch-sato.github.io/timecard.html" %>
-        </td>
-      </tr>
-      <tr></tr>
-    </table>
+    <h2 class="top-speech-index__title">
+      新着のスピーチ
+    </h2>
+    <div class="top-speech-3col">
+      <% @speeches.each do |speech| %>
+        <div class="panel panel-primary top-speech-3col__item">
+          <div class="panel-heading">
+            <h3 class="panel-title top-speech__title text-center">
+              <%= speech.title %>
+            </h3>
+          </div>
+          <div class="panel-body inner-m">
+            <div class="mbm">
+              <%= image_tag speech.user.image.url, class: "top-speech__image user-image" %>
+              <span>
+                <div class="top-speech__user-name">
+                  <%= link_to user_path(speech.user) do %>
+                    <%= speech.user.name %>
+                  <% end %>
+                </div>
+                <span>
+                  (<%= speech.user.university %><%= speech.user.grade %>年)
+                </span>
+              </span>
+            </div>
+
+            <blockquote class="top-speech__overview">
+              <%= speech.overview %>
+            </blockquote>
+
+            <div class="top-speech__info">
+              最終更新:<%= speech.updated_at %>
+              <span class="float-right">
+                <% if speech.likes.count.nonzero? %>
+                  <span>
+                    <% if current_user.likes.find_by(speech_id: speech.id) %>
+                      <i class="fa fa-check-circle speech-index-table__icon checked"></i>
+                    <% else %>
+                      <i class="fa fa-check-circle speech-index-table__icon"></i>
+                    <% end %>
+                    <%= speech.likes.count %>
+                  </span>
+                <% end %>
+                <% if speech.comments.count.nonzero? %>
+                  <span>
+                    <% if current_user.comments.find_by(speech_id: speech.id) %>
+                      <i class="fa fa-commenting-o speech-index-table__icon checked"></i>
+                    <% else %>
+                      <i class="fa fa-commenting-o speech-index-table__icon"></i>
+                    <% end %>
+                    <%= speech.comments.count %>
+                  </span>
+                <% end %>
+              </span>
+            </div>
+
+            <div>
+              <%= link_to user_speech_path(speech) do %>
+                <button class="btn btn-info span12">スピーチを見る</button>
+              <% end %>
+            </div>
+          </div>
+
+
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
