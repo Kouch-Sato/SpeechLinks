@@ -11,21 +11,21 @@
         <div class="navbar-brand">Speech Links</div>
       <% end %>
     </div>
-    <% if user_signed_in? %>
-      <div class="navbar-collapse collapse in" id="main-navbar" aria-expanded="false">
-        <ul class="nav navbar-nav">
-          <li>
-            <%= link_to user_speeches_path do %>
-              <i class="fa fa-book"></i> スピーチ一覧
-            <% end %>
-          </li>
-          <li>
-            <%= link_to users_path do %>
-              <i class="fa fa-users"></i> Speaker一覧
-            <% end %>
-          </li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
+    <div class="navbar-collapse collapse in" id="main-navbar" aria-expanded="false">
+      <ul class="nav navbar-nav">
+        <li>
+          <%= link_to user_speeches_path do %>
+            <i class="fa fa-book"></i> スピーチ一覧
+          <% end %>
+        </li>
+        <li>
+          <%= link_to users_path do %>
+            <i class="fa fa-users"></i> Speaker一覧
+          <% end %>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <% if user_signed_in? %>
           <li>
             <%= link_to new_user_speech_path do %>
               <i class="fa fa-pencil-square-o"></i> スピーチ登録
@@ -54,8 +54,19 @@
           <li>
             <%= render "shared/notification_dropdown" %>
           </li>
-        </ul>
-      </div>
-    <% end %>
+        <% else %>
+          <li>
+            <%= link_to new_user_registration_path do %>
+              <i class="fa fa-plus"></i> 新規登録
+            <% end %>
+          </li>
+          <li>
+            <%= link_to new_user_session_path do %>
+              <i class="fa fa-sign-in"></i> ログイン
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
   </div>
 </nav>

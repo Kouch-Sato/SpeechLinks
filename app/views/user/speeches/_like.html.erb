@@ -5,17 +5,23 @@
     <% end %>
   </div>
   <div class="speech-like__button">
-    <% if speech.user_id == current_user.id %>
-      <i class="fa fa-check-circle speech-like__icon checked" data-toggle="tooltip" data-placement="bottom" data-original-title="自分のスピーチは読んだ！済みです"></i>
-    <% else %>
-      <% if current_user.likes.find_by(speech_id: speech.id) %>
-        <%= link_to user_speech_like_path(speech.id), method: :delete do %>
-          <i class="fa fa-check-circle speech-like__icon checked" data-toggle="tooltip" data-placement="bottom" data-original-title="読んだ！済み"></i>
-        <% end %>
+    <% if user_signed_in? %>
+      <% if speech.user_id == current_user.id %>
+        <i class="fa fa-check-circle speech-like__icon" data-toggle="tooltip" data-placement="bottom" data-original-title="自分のスピーチは読んだ！できません"></i>
       <% else %>
-        <%= link_to user_speech_likes_path(speech.id), method: :post do %>
-          <i class="fa fa-check-circle-o speech-like__icon" data-toggle="tooltip" data-placement="bottom" data-original-title="読んだ！を押す"></i>
+        <% if current_user.likes.find_by(speech_id: speech.id) %>
+          <%= link_to user_speech_like_path(speech.id), method: :delete do %>
+            <i class="fa fa-check-circle speech-like__icon checked" data-toggle="tooltip" data-placement="bottom" data-original-title="読んだ！済み"></i>
+          <% end %>
+        <% else %>
+          <%= link_to user_speech_likes_path(speech.id), method: :post do %>
+            <i class="fa fa-check-circle-o speech-like__icon" data-toggle="tooltip" data-placement="bottom" data-original-title="読んだ！を押す"></i>
+          <% end %>
         <% end %>
+      <% end %>
+    <% else %>
+      <%= link_to new_user_session_path do %>
+        <i class="fa fa-check-circle speech-like__icon" data-toggle="tooltip" data-placement="bottom" data-original-title="ログインすると読んだ！を押すことができます"></i>
       <% end %>
     <% end %>
   </div>
