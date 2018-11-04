@@ -11,6 +11,7 @@ class User < ApplicationRecord
   has_many :commented_speeches, through: :comments, source: :speech
   has_many :notification, dependent: :delete_all
 
+  mount_uploader :image, ImageUploader
 
   validates :name, presence: true
   validates :bio, presence: true

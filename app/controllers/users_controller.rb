@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: [:edit, :update]
   before_action :ensure_current_user, only: [:edit, :update]
 
   def index
@@ -29,7 +29,7 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:name, :email, :bio, :university, :grade)
+    params.require(:user).permit(:name, :email, :bio, :university, :grade, :image)
   end
 
   def ensure_current_user

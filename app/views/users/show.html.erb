@@ -1,25 +1,32 @@
 <div class="panel panel-default">
   <div class="panel-heading">
-    <h2><%= @user.name %></h2>
+    <h2>
+      <%= @user.name %>
+    </h2>
   </div>
   <div class="panel-body">
     <div class="user-profile mtl mbl">
-      <blockquote class="span8 user-profile__left">
+      <div class="user-profile__left">
+        <div class="mbm">
+          <%= image_tag @user.image.url, class: "user-profile__image user-image" %>
+        </div>
         <p>
           <%= @user.university %> <%= @user.grade %>年生
         </p>
-        <p>
-          <%= simple_format(@user.bio) %>
-        </p>
-      </blockquote>
-      <span class="span4 user-profile__right">
-        <p class="user-links-point__title">
+      </div>
+      <div class="user-profile__right span12 mtm">
+        <blockquote class="user-profile__bio mb">
+          <p>
+            <%= simple_format(@user.bio) %>
+          </p>
+        </blockquote>
+        <p class="user-links-point__title text-center">
           Links Point
         </p>
-        <p class="user-links-point__points">
+        <p class="user-links-point__points text-center">
           <%= @user.links_point %>
         </p>
-      </span>
+      </div>
     </div>
     <div>
       <ul class="nav nav-tabs span12">

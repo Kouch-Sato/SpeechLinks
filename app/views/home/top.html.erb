@@ -1,28 +1,41 @@
 <div class="panel panel-default">
   <div class="panel-heading">
-    <h2>
+    <h1>
       ようこそ！SpeechLinksへ
-    </h2>
+    </h1>
   </div>
   <div class="panel-body">
-    <table class="home-top-table">
-      <tr>
-        <td class="home-top-table__td">
-          <%= link_to "スピーチを登録する", new_user_speech_path %>
-        </td>
-        <td class="home-top-table__td">
-          <%= link_to "スピーチを読む", user_speeches_path %>
-        </td>
-      </tr>
-      <tr>
-        <td class="home-top-table__td">
-          <%= link_to "TopicMaker", "https://kouch-sato.github.io/topic.html" %>
-        </td>
-        <td class="home-top-table__td">
-          <%= link_to "TimeCard", "https://kouch-sato.github.io/timecard.html" %>
-        </td>
-      </tr>
-      <tr></tr>
-    </table>
+    <section>
+      <h2 class="top-speech-index__title">
+        新着のスピーチ
+      </h2>
+      <%= render "speeches", speeches: @new_speeches %>
+    </section>
+    <section>
+      <h2 class="top-speech-index__title">
+        今のオススメスピーチ
+      </h2>
+      <%= render "speeches", speeches: @random_speeches %>
+    </section>
+    <section>
+      <h2 class="top-speech-index__title">
+        最近コメントされたスピーチ
+      </h2>
+      <%= render "speeches", speeches: @commented_speeches %>
+    </section>
+    <% if user_signed_in? %>
+      <section>
+        <h2 class="top-speech-index__title">
+          自分のスピーチ
+        </h2>
+        <%= render "speeches", speeches: @my_speeches %>
+      </section>
+      <section>
+        <h2 class="top-speech-index__title">
+          最近読んだスピーチ
+        </h2>
+        <%= render "speeches", speeches: @my_liked_speeches %>
+      </section>
+    <% end %>
   </div>
 </div>

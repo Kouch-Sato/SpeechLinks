@@ -1,18 +1,24 @@
 <table class="table table-hover user-index-table">
   <% users.each do |user| %>
     <tr>
+      <td class="user-index-table__image-td">
+        <%= image_tag user.image.url, class: "user-index-table__image user-image" %>
+      </td>
       <td>
-        <div class="user-index-table__name">
+        <span class="user-index-table__name">
           <%= link_to(user_path(user)) do %>
             <%= user.name %>
           <% end %>
-        </div>
-        <p class="user-index-table__university">
+        </span>
+        <span class="user-index-table__university">
           <%= user.university %> <%= user.grade %>年生
-        </p>
+        </span>
         <span class="user-index-table__speeches">
           スピーチの数：<%= user.speeches.count %>
         </span>
+        <p class="user-index-table__bio">
+          <%= user.bio %>
+        </p>
       </td>
       <td>
         <div class="user-index-table__right" data-toggle="tooltip" data-placement="right" data-original-title="LinksPointは投稿したスピーチが読まれたり、他の人のスピーチを読んだりすることで上昇していきます。">

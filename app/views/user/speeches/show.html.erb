@@ -21,7 +21,8 @@
         <p>
           最終更新日時 : <%= @speech.updated_at %>
         </p>
-        <% if @speech.user_id == current_user.id %>
+
+        <% if user_signed_in? && @speech.user_id == current_user.id %>
           <%= link_to edit_user_speech_path(@speech), class: "btn btn-info" do %>
             <i class="fa fa-pencil-square-o"></i> 編集
           <% end %>
@@ -58,7 +59,7 @@
                   <% end %>
                 </span>
                 <span class="speech-comments-table__right">
-                  <% if current_user.id == comment.user_id %>
+                  <% if user_signed_in? && current_user.id == comment.user_id %>
                     <%= link_to user_speech_comment_path(@speech.id, comment.id), method: :delete, data: {confirm: 'コメントを削除してよろしいですか？'} do %>
                       <i class="fa fa-trash-o"></i>
                     <% end %>
@@ -74,14 +75,18 @@
         <% end %>
       </table>
 
-      <div class="speech-comments-form">
-        <%= render "shared/error_message", model: @comment %>
-        <%= form_for (@comment), url: user_speech_comments_path(@speech) do |f| %>
-          <%= f.label :content, "スピーチを読んだら感想を書いてあげましょう！" %>
-          <%= f.text_area :content, class: "form-control speech-comments-form__text mbs", rows: 3, placeholder: "ご自身の体験がとても印象的で、心に残るスピーチでした！" %>
-          <%= f.submit "コメントを投稿", class: "btn btn-primary span12" %>
-        <% end %>
-      </div>
+      <% if user_signed_in? %>
+        <div class="speech-comments-form">
+          <%= render "shared/error_message", model: @comment %>
+          <%= form_for (@comment), url: user_speech_comments_path(@speech) do |f| %>
+            <%= f.label :content, "スピーチを読んだら感想を書いてあげましょう！" %>
+            <%= f.text_area :content, class: "form-control speech-comments-form__text mbs", rows: 3, placeholder: "ご自身の体験がとても印象的で、心に残るスピーチでした！" %>
+            <%= f.submit "コメントを投稿", class: "btn btn-primary span12" %>
+          <% end %>
+        </div>
+      <% else %>
+        コメントを残すには<%= link_to "ログイン", new_user_session_path %>してください
+      <% end %>
     </div>
   </div>
 </div>

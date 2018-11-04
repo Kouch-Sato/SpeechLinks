@@ -1,5 +1,5 @@
 class User::SpeechesController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   before_action :ensure_speech_owner, only: [:edit, :update, :destroy]
 
   PER = 8

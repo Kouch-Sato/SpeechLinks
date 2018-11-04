@@ -1,5 +1,5 @@
 class User::LikesController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: [:create, :destroy]
   after_action :create_notification, only: [:create]
 
   def create

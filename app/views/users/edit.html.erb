@@ -16,6 +16,11 @@
       </div>
 
       <div class="field mbm">
+        <%= f.label :image %>
+        <%= f.file_field :image, class: "form-control" %>
+      </div>
+
+      <div class="field mbm">
         <%= f.label :university %>
         <%= f.select :university, User.universities.keys, class: "form-control", prompt: "選択してください" %>
       </div>

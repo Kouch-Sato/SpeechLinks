@@ -22,7 +22,7 @@
         <span class="speech-index-table__right">
           <% if speech.likes.count.nonzero? %>
             <p>
-              <% if current_user.likes.find_by(speech_id: speech.id) %>
+              <% if user_signed_in? && current_user.likes.find_by(speech_id: speech.id) %>
                 <i class="fa fa-check-circle speech-index-table__icon checked"></i>
               <% else %>
                 <i class="fa fa-check-circle speech-index-table__icon"></i>
@@ -32,7 +32,7 @@
           <% end %>
           <% if speech.comments.count.nonzero? %>
             <p>
-              <% if current_user.comments.find_by(speech_id: speech.id) %>
+              <% if user_signed_in? && current_user.comments.find_by(speech_id: speech.id) %>
                 <i class="fa fa-commenting-o speech-index-table__icon checked"></i>
               <% else %>
                 <i class="fa fa-commenting-o speech-index-table__icon"></i>
