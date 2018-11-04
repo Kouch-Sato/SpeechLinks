@@ -123,10 +123,10 @@
       font-size: 32px;
     }
 
-    #{&}__user {
-      padding-right: 20px;
-      float: left;
-      padding-left: 10px;
+    #{&}__image {
+      height: 30px;
+      width: 30px;
+      display: inline-block;
     }
 
     #{&}__right {

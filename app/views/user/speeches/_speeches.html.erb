@@ -9,14 +9,17 @@
             </span>
           <% end %>
         </div>
-        <p class="speech-index-table__user">
-          <%= link_to(user_path(speech.user)) do %>
-            <%= speech.user.name %>
-          <% end %>
-        </p>
-        <span class="speech-index-table__created">
-          <%= speech.created_at %>
-        </span>
+        <div class="pls">
+          <span class="speech-index-table__user prs ">
+            <%= link_to(user_path(speech.user)) do %>
+              <%= image_tag speech.user.image.thumb.url, class: "speech-index-table__image user-image mrs" %>
+              <%= speech.user.name %>
+            <% end %>
+          </span>
+          <span class="speech-index-table__created">
+            <%= speech.created_at %>
+          </span>
+        </div>
       </td>
       <td>
         <span class="speech-index-table__right">
