@@ -20,26 +20,9 @@
 .top-speech-index {
   @at-root {
     #{&}__title{
-      margin: 0 20px;
-      padding: 20px;
+      margin-bottom: 10px;
+      padding: 0 0 10px 10px;
       border-bottom: 2px solid #ddd;
-    }
-  }
-}
-
-
-.top-speech-3col {
-  display: flex;
-  padding: 20px;
-
-  @at-root {
-    #{&}__item {
-      width: 32%;
-      margin-left: 2%;
-
-      &:first-child {
-        margin-left: 0;
-      }
     }
   }
 }
