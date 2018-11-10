@@ -3,22 +3,14 @@
  ****************/
 
 .user-profile {
-  width:  80%;
+  width:  90%;
   margin-left: auto;
   margin-right: auto;
-  display: flex;
 
   @at-root {
-    #{&}__left {
-      margin-right: 70px;
-    }
-
     #{&}__image {
       height: 280px;
       width: 280px;
-    }
-
-    #{&}__right {
     }
 
     #{&}__bio {

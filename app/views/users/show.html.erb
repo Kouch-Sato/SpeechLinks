@@ -5,8 +5,8 @@
     </h2>
   </div>
   <div class="panel-body">
-    <div class="user-profile mtl mbl">
-      <div class="user-profile__left">
+    <div class="user-profile mtl mbl row">
+      <div class="col-sm-6">
         <div class="mbm">
           <%= image_tag @user.image.thumb.url, class: "user-profile__image user-image" %>
         </div>
@@ -14,7 +14,7 @@
           <%= @user.university %> <%= @user.grade %>年生
         </p>
       </div>
-      <div class="user-profile__right span12 mtm">
+      <div class="col-sm-6 mtm">
         <blockquote class="user-profile__bio mb">
           <p>
             <%= simple_format(@user.bio) %>
@@ -42,7 +42,7 @@
         </li>
         <li class="user-tab">
           <a class="user-tab__link" href="#commented_speeches" data-toggle="tab">
-            コメントしたスピーチ <span class="badge"><%= @commented_speeches.count %></span>
+            コメント <span class="badge"><%= @commented_speeches.count %></span>
           </a>
         </li>
       </ul>
