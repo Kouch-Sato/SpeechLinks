@@ -47,3 +47,18 @@
 .span10 { width: 83.0%; }
 .span11 { width: 91.5%; }
 .span12 { width: 100%; }
+
+.l-horizon {
+  display: table;
+
+  @at-root {
+    #{&}__item {
+      display: table-cell;
+    }
+
+    #{&}__middle {
+      display: table-cell;
+      vertical-align: middle;
+    }
+  }
+}
