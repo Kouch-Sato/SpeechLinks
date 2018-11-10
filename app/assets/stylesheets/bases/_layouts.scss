@@ -30,6 +30,11 @@
   }
 }
 
+.row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
 .span1 { width: 6.5%; }
 .span2 { width: 15.0%; }
 .span3 { width: 23.5%; }
@@ -42,3 +47,18 @@
 .span10 { width: 83.0%; }
 .span11 { width: 91.5%; }
 .span12 { width: 100%; }
+
+.l-horizon {
+  display: table;
+
+  @at-root {
+    #{&}__item {
+      display: table-cell;
+    }
+
+    #{&}__middle {
+      display: table-cell;
+      vertical-align: middle;
+    }
+  }
+}

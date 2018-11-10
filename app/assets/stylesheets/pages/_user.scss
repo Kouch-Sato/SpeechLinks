@@ -3,22 +3,14 @@
  ****************/
 
 .user-profile {
-  width:  80%;
+  width:  90%;
   margin-left: auto;
   margin-right: auto;
-  display: flex;
 
   @at-root {
-    #{&}__left {
-      margin-right: 70px;
-    }
-
     #{&}__image {
       height: 280px;
       width: 280px;
-    }
-
-    #{&}__right {
     }
 
     #{&}__bio {
@@ -58,34 +50,18 @@
 
 .user-index-table {
   @at-root {
-    #{&}__image-td {
-      width: 1px;
-    }
-
     #{&}__image {
-      height: 100px;
-      width: 100px;
-      margin: 10px;
-      margin-right: 0;
+      height: 50px;
+      width: 50px;
+      margin-right: 10px;
     }
 
     #{&}__name {
-      font-size: 40px;
-    }
-
-    #{&}__university {
-      padding-left: 10px;
-      padding-right: 10px;
+      font-size: 30px;
     }
 
     #{&}__bio {
       font-size: 14px;
-    }
-
-    #{&}__right {
-      padding: 15px;
-      float: right;
-      text-align: center;
     }
 
     #{&}__links-point {

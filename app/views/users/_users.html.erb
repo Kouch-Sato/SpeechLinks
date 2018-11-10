@@ -1,27 +1,31 @@
 <table class="table table-hover user-index-table">
   <% users.each do |user| %>
     <tr>
-      <td class="user-index-table__image-td">
-        <%= image_tag user.image.thumb.url, class: "user-index-table__image user-image" %>
-      </td>
-      <td>
-        <span class="user-index-table__name">
-          <%= link_to(user_path(user)) do %>
-            <%= user.name %>
-          <% end %>
-        </span>
-        <span class="user-index-table__university">
-          <%= user.university %> <%= user.grade %>年生
-        </span>
-        <span class="user-index-table__speeches">
-          スピーチの数：<%= user.speeches.count %>
-        </span>
-        <p class="user-index-table__bio">
-          <%= user.bio %>
-        </p>
-      </td>
-      <td>
-        <div class="user-index-table__right" data-toggle="tooltip" data-placement="right" data-original-title="LinksPointは投稿したスピーチが読まれたり、他の人のスピーチを読んだりすることで上昇していきます。">
+      <td class="row">
+        <div class="col-sm-10">
+          <div class="l-horizon mts mbs">
+            <span class="l-horizon__item text-center">
+              <%= image_tag user.image.thumb.url, class: "user-index-table__image user-image" %>
+            </span>
+            <span class="l-horizon__middle user-index-table__name">
+              <%= link_to(user_path(user)) do %>
+                <%= user.name %>
+              <% end %>
+            </span>
+          </div>
+          <div class="mbs">
+            <span class="prs">
+              <%= user.university %> <%= user.grade %>年生
+            </span>
+            <span class="user-index-table__speeches">
+              スピーチの数：<%= user.speeches.count %>
+            </span>
+          </div>
+          <p class="user-index-table__bio">
+            <%= user.bio %>
+          </p>
+        </div>
+        <div class="mtm col-sm-2 text-center" data-toggle="tooltip" data-placement="right" data-original-title="LinksPointは投稿したスピーチが読まれたり、他の人のスピーチを読んだりすることで上昇していきます。">
           <p>
             Links Point
           </p>
