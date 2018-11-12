@@ -20,6 +20,18 @@
   }
 }
 
+@media (min-width: 768px) {
+  .sp-only {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .pc-only {
+    display: none;
+  }
+}
+
 .col {
   display: block;
   float: left;
