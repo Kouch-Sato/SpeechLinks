@@ -1,27 +1,27 @@
-<div class="speech-like">
-  <div class="speech-like__count">
+<div class="speech-like-pc pc-only">
+  <div class="speech-like-pc__count">
     <%= link_to user_speech_likes_path(speech) do %>
       <%= speech.likes.count %>
     <% end %>
   </div>
-  <div class="speech-like__button">
+  <div class="speech-like-pc__button">
     <% if user_signed_in? %>
       <% if speech.user_id == current_user.id %>
-        <i class="fa fa-check-circle speech-like__icon" data-toggle="tooltip" data-placement="bottom" data-original-title="自分のスピーチは読んだ！できません"></i>
+        <i class="fa fa-check-circle speech-like-pc__icon" data-toggle="tooltip" data-placement="bottom" data-original-title="自分のスピーチは読んだ！できません"></i>
       <% else %>
         <% if current_user.likes.find_by(speech_id: speech.id) %>
           <%= link_to user_speech_like_path(speech.id), method: :delete do %>
-            <i class="fa fa-check-circle speech-like__icon checked" data-toggle="tooltip" data-placement="bottom" data-original-title="読んだ！済み"></i>
+            <i class="fa fa-check-circle speech-like-pc__icon checked" data-toggle="tooltip" data-placement="bottom" data-original-title="読んだ！済み" aria-describedby="popover"></i>
           <% end %>
         <% else %>
           <%= link_to user_speech_likes_path(speech.id), method: :post do %>
-            <i class="fa fa-check-circle-o speech-like__icon" data-toggle="tooltip" data-placement="bottom" data-original-title="読んだ！を押す"></i>
+            <i class="fa fa-check-circle-o speech-like-pc__icon" data-toggle="tooltip" data-placement="bottom" data-original-title="読んだ！を押す"></i>
           <% end %>
         <% end %>
       <% end %>
     <% else %>
       <%= link_to new_user_session_path do %>
-        <i class="fa fa-check-circle speech-like__icon" data-toggle="tooltip" data-placement="bottom" data-original-title="ログインすると読んだ！を押すことができます"></i>
+        <i class="fa fa-check-circle speech-like-pc__icon" data-toggle="tooltip" data-placement="bottom" data-original-title="ログインすると読んだ！を押すことができます"></i>
       <% end %>
     <% end %>
   </div>

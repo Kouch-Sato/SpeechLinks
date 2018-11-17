@@ -45,6 +45,32 @@
       </div>
     </div>
 
+    <div class="mbl">
+      <p>
+        現在<%= link_to @speech.likes.count, user_speech_likes_path(@speech) %>人がこのスピーチに「読んだ！」しています。
+      </p>
+      <% if user_signed_in? %>
+        <% if @speech.user_id != current_user.id %>
+          <% if current_user.likes.find_by(speech_id: @speech.id) %>
+            <%= link_to user_speech_like_path(@speech.id), method: :delete, class: "btn btn-primary span12 mbm" do %>
+              読んだ！済み
+            <% end %>
+          <% else %>
+            <%= link_to user_speech_likes_path(@speech.id), method: :post, class: "btn btn-info span12 mbm" do %>
+              読んだ！
+            <% end %>
+          <% end %>
+        <% end %>
+        <p>
+          あなたは全部で<%= link_to current_user.likes.count, user_path(current_user) %>本のスピーチを読んでいます！
+        </p>
+      <% else %>
+        <p>
+          <%= link_to "ログイン", new_user_session_path %>すると読んだ記録を残すことができます
+        </p>
+      <% end %>
+    </div>
+
     <%= render "like", speech: @speech %>
 
     <div class="speech-comments">
@@ -85,7 +111,7 @@
           <% end %>
         </div>
       <% else %>
-        コメントを残すには<%= link_to "ログイン", new_user_session_path %>してください
+        <%= link_to "ログイン", new_user_session_path %>するとコメントを残すことができます
       <% end %>
     </div>
   </div>

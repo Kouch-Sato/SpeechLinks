@@ -2,15 +2,13 @@
  * speeches#show
  ****************/
 
-@media (min-width: 768px) {
-  .speech-container {
-    width: 95%;
-    margin-left: auto;
-    margin-right: auto;
-  }
+.speech-container {
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-@media (min-width: 992px) {
+@media (min-width: 768px) {
   .speech-container {
     width: 80%;
     margin-left: auto;
@@ -30,7 +28,7 @@
 }
 
 .speech-show {
-  width: 90%;
+  width: 95%;
   margin-left: auto;
   margin-right: auto;
   color: $speech-black;
@@ -51,33 +49,6 @@
     #{&}__content {
       clear: both;
       text-align: justify;
-    }
-  }
-}
-
-.speech-like {
-  position: fixed;
-  top: 40%;
-  left: 12%;
-  text-align: center;
-
-  @at-root {
-    #{&}__count {
-      font-size: 30px;
-      color: $red;
-    }
-
-    #{&}__button {
-      font-size: 60px;
-      padding: 0 10px;
-    }
-
-    #{&}__icon {
-      color: gray;
-
-      &.checked {
-        color: $red;
-      }
     }
   }
 }

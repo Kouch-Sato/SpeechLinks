@@ -1,0 +1,26 @@
+.speech-like-pc {
+  position: fixed;
+  top: 40%;
+  left: 12%;
+  text-align: center;
+
+  @at-root {
+    #{&}__count {
+      font-size: 30px;
+      color: $red;
+    }
+
+    #{&}__button {
+      font-size: 60px;
+      padding: 0 10px;
+    }
+
+    #{&}__icon {
+      color: gray;
+
+      &.checked {
+        color: $red;
+      }
+    }
+  }
+}
