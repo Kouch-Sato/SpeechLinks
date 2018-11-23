@@ -21,3 +21,4 @@ config/secrets.yml
 .idea
 
 public/uploads
+public/assets
