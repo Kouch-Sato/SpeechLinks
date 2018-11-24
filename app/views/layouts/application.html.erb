@@ -13,12 +13,13 @@
 
   <body id="body">
     <%= render "shared/navbar" %>
-
     <%= render "shared/flash" %>
 
-    <div class="container">
+    <div class="container mbl">
       <%= yield %>
     </div>
+
+    <%= render "shared/footer" %>
 
     <script>
       $(function () {

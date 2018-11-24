@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   root to: "home#top"
   get 'home/top'
   get 'home/help'
+  get 'home/privacy'
+  get 'home/terms'
   resources :users
   namespace :user do
     resources :notifications, only: [:index, :show]
