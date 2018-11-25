@@ -2,8 +2,10 @@ class UsersController < ApplicationController
   before_action :authenticate_user!, only: [:edit, :update]
   before_action :ensure_current_user, only: [:edit, :update]
 
+  PER = 8
+
   def index
-    @users = User.all
+    @users = User.all.page(params[:page]).per(PER)
   end
 
   def show

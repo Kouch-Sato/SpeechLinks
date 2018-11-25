@@ -6,5 +6,8 @@
   </div>
   <div class="panel-body">
     <%= render "users", users: @users %>
+    <div class="text-center">
+      <%= paginate @users %>
+    </div>
   </div>
 </div>
