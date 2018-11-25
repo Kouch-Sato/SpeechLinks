@@ -54,8 +54,18 @@
         <%= f.password_field :password_confirmation, class: "form-control" %>
       </div>
 
+      <div class="mbm">
+        <%= link_to home_terms_path, target: "_blank",class: "btn btn-info" do %>
+          利用規約
+        <% end %>
+
+        <%= link_to home_privacy_path, target: "_blank",class: "btn btn-info" do %>
+          プライバシーポリシー
+        <% end %>
+      </div>
+
       <div class="actions mbm">
-        <%= f.submit "Speech Linksを始める！", class: "btn btn-primary span12" %>
+        <%= f.submit "上記に同意して、Speech Linksを始める！", class: "btn btn-primary btn-lg span12" %>
       </div>
     <% end %>
   </div>
