@@ -1,15 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  user: 
-  notified_by: one
-  speech: one
-  type: 
-  read: 
+#one:
+#  user:
+#  notified_by: one
+#  speech: one
+#  type:
+#  read:
 
-two:
-  user: 
-  notified_by: two
-  speech: two
-  type: 
-  read: 
+#two:
+#  user:
+#  notified_by: two
+#  speech: two
+#  type:
+  #  read:
