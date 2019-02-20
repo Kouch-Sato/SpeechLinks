@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: speeches
+#
+#  id         :bigint(8)        not null, primary key
+#  title      :string(255)
+#  content    :text(65535)
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  user_id    :integer
+#  overview   :text(65535)
+#
+
 kouch1:
   title: 10 Years Later
   overview: 一番伝えたかったことを書いた、僕の最後のスピーチです。「今の自分の自信がない」と少しでも思うなら、ぜひ一度読んでみてください。\r\nあなたの10年後は、どうなっているのでしょうか？
