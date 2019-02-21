@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class HomeControllerTest < ActionDispatch::IntegrationTest
-  # test "the truth" do
-  #   assert true
-  # end
+  def test_first
+    assert 1 == 1
+  end
 end

@@ -1,9 +1,5 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  title: MyString
-  content: MyText
-
-two:
-  title: MyString
-  content: MyText
+kouch1:
+  title: 10 Years Later
+  overview: 一番伝えたかったことを書いた、僕の最後のスピーチです。「今の自分の自信がない」と少しでも思うなら、ぜひ一度読んでみてください。\r\nあなたの10年後は、どうなっているのでしょうか？
+  content: Looking at the smart phone, in the Twitter or the Facebook, there are a lot of our friends’ “gorgeous” posts.  Someone participates in a project as a leader.
+  user: kouch
