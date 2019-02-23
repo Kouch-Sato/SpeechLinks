@@ -16,8 +16,9 @@ services:
     image: mysql:5.6
     environment:
       - MYSQL_DATABASE=SpeechLinks_development
-      - MYSQL_PASSWORD=password
+      - MYSQL_ROOT_PASSWORD=password
     volumes:
+      - ./docker/db/etc:/etc/mysql/conf.d
       - sql_data:/var/lib/mysql
 
 volumes:
