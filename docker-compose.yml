@@ -1,0 +1,26 @@
+version: '3.7'
+services:
+  app:
+    build: .
+    image: speechlinks
+    command: bundle exec puma -C config/puma.rb
+    ports:
+      - 3500:3000
+    environment:
+      - MYSQL_HOST=db
+      - MYSQL_ROOT_PASSWORD=password
+    volumes:
+        - .:/var/www/SpeechLinks
+
+  db:
+    image: mysql:5.6
+    environment:
+      - MYSQL_DATABASE=SpeechLinks_development
+      - MYSQL_ROOT_PASSWORD=password
+    volumes:
+      - ./docker/db/etc:/etc/mysql/conf.d
+      - sql_data:/var/lib/mysql
+
+volumes:
+  sql_data:
+    driver: local
