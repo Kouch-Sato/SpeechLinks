@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>SpeechLinks</title>
-    <%= csrf_meta_tags %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-    <meta charset="utf-8">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <!--    meta-tagsの設定-->
+    <%= display_meta_tags default_meta_tags %>
+    <!--    faviconを追加-->
     <%= favicon_link_tag() %>
+    <!--    google analytics-->
     <%= analytics_init if Rails.env.production? %>
+    <!--    CSRF対策-->
+    <%= csrf_meta_tags %>
   </head>
 
   <body id="body">
@@ -22,6 +25,7 @@
     <%= render "shared/footer" %>
 
     <script>
+      // bootstrapのtooltip
       $(function () {
         $('[data-toggle="tooltip"]').tooltip();
       });
