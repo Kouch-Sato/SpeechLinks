@@ -2,7 +2,7 @@ module ApplicationHelper
   def default_meta_tags
     {
       site: 'SpeechLinks',
-      title: 'TOP',
+      title: '',
       reverse: true,
       separator: '-',
       description: 'SpeechLinksは自分の英語スピーチを共有することができるサービスです。自分の書いたスピーチを誰かに見てもらったり、日本中のスピーカーが書いたスピーチを見ることもできます。',
