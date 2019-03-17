@@ -19,4 +19,24 @@ module ApplicationHelper
       ]
     }
   end
+
+  def admin_meta_tags
+    {
+      site: 'SpeechLinks',
+      title: '管理画面',
+      reverse: true,
+      separator: '-',
+      charaset: 'utf-8',
+      noindex: true,
+      icon: [
+        {
+          href: image_url('favicon.ico')
+        },
+        {
+          href: image_url('apple-touch-icon.png'),
+          rel: 'apple-touch-icon'
+        }
+      ]
+    }
+  end
 end

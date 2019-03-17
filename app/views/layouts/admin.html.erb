@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>SpeechLinks</title>
-    <%= csrf_meta_tags %>
-    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= favicon_link_tag() %>
+    <!--    meta-tagsの設定-->
+    <%= display_meta_tags admin_meta_tags %>
+    <!--    google analytics-->
     <%= analytics_init if Rails.env.production? %>
+    <!--    CSRF対策-->
+    <%= csrf_meta_tags %>
   </head>
 
   <body id="body">
