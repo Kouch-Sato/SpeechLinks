@@ -17,7 +17,7 @@ module UsersHelper
       title: @user.name,
       description: @user.bio,
       og: {
-        image: @user.image.url
+        image: "#{Rails.root}#{@user.image.thumb.url}"
       }
     }
   end
