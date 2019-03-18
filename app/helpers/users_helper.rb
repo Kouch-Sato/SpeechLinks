@@ -17,7 +17,6 @@ module UsersHelper
       title: @user.name,
       description: @user.bio,
       og: {
-        # image: root_url + @user.image.thumb.url
         image: File.join(root_url, @user.image.thumb.url)
       }
     }
