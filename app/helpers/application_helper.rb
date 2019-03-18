@@ -16,7 +16,20 @@ module ApplicationHelper
           href: image_url('apple-touch-icon.png'),
           rel: 'apple-touch-icon'
         }
-      ]
+      ],
+      og: {
+        site_name: :site,
+        title: :title,
+        description: :description,
+        type: 'website',
+        url: request.original_url,
+        image: image_url('apple-touch-icon.png'),
+        locale: 'ja_JP'
+      },
+      twitter: {
+        card: 'summary',
+        site: '@speech_links'
+      }
     }
   end
 

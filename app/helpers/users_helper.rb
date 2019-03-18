@@ -15,7 +15,10 @@ module UsersHelper
   def users_show_meta_tags
     {
       title: @user.name,
-      description: @user.bio
+      description: @user.bio,
+      og: {
+        image: @user.image.url
+      }
     }
   end
 end
