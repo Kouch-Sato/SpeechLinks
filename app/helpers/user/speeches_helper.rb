@@ -22,7 +22,10 @@ module User::SpeechesHelper
   def user_speeches_show_meta_tags
     {
       title: @speech.title,
-      description: @speech.overview
+      description: @speech.overview,
+      og: {
+        image: @speech.user.image.url
+      }
     }
   end
 end
