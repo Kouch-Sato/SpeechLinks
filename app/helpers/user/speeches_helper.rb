@@ -24,7 +24,7 @@ module User::SpeechesHelper
       title: @speech.title,
       description: @speech.overview,
       og: {
-        image: @user.image.url
+        image: @speech.user.image.url
       }
     }
   end
