@@ -24,7 +24,7 @@ module User::SpeechesHelper
       title: @speech.title,
       description: @speech.overview,
       og: {
-        image: "#{Rails.root}#{@speech.user.image.thumb.url}"
+        image: File.join(root_url, @speech.user.image.thumb.url)
       }
     }
   end
